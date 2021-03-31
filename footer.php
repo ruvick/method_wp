@@ -6,7 +6,7 @@
 
 			<!-- <div class="footer__item-left d-flex"> -->
 
-				<a href="#" class="header__logo logo-icon"></a>
+				<a href="https://method.market" class="header__logo logo-icon"></a>
 
 				<div class="footer__text">
 					<p>

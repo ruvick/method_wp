@@ -7,22 +7,23 @@ Version: 1.0.1
 */ 
 
 @charset "UTF-8";
-@font-face {
+
+@font-face { 
   font-family: 'Gilroy';
-  src: url("../fonts/gilroy-regular.eot");
-  src: local("☺"), url("../fonts/gilroy-regular.woff") format("woff"), url("../fonts/gilroy-regular.ttf") format("truetype"), url("../fonts/gilroy-regular.svg") format("svg");
+  src: url("fonts/gilroy-regular.eot");
+  src: local("☺"), url("fonts/gilroy-regular.woff") format("woff"), url("fonts/gilroy-regular.ttf") format("truetype"), url("fonts/gilroy-regular.svg") format("svg");
   font-weight: 400;
   font-style: normal; }
 
 @font-face {
   font-family: 'Gilroy';
-  src: url("../fonts/gilroy-semibold.eot");
-  src: local("☺"), url("../fonts/gilroy-semibold.woff") format("woff"), url("../fonts/gilroy-semibold.ttf") format("truetype"), url("../fonts/gilroy-semibold.svg") format("svg");
+  src: url("fonts/gilroy-semibold.eot");
+  src: local("☺"), url("fonts/gilroy-semibold.woff") format("woff"), url("fonts/gilroy-semibold.ttf") format("truetype"), url("fonts/gilroy-semibold.svg") format("svg");
   font-weight: 600;
   font-style: normal; }
 
 * {
-  padding: 0px;
+  padding: 0px; 
   margin: 0px;
   border: 0px; }
 
@@ -230,7 +231,7 @@ body {
     right: 0px;
     width: 45px;
     height: 100%;
-    background: url("../img/icons/triangl-black.svg") center no-repeat; }
+    background: url("img/icons/triangl-black.svg") center no-repeat; }
   .select .select-title__value {
     color: #000;
     font-weight: 700;
@@ -331,7 +332,7 @@ input:-moz-placeholder {
     border: 1px solid #a3a3a3;
     position: absolute; }
   .check.active:before {
-    background: url("../img/icons/check.svg") center no-repeat; }
+    background: url("img/icons/check.svg") center no-repeat; }
 
 .option {
   position: relative;
@@ -355,7 +356,7 @@ input:-moz-placeholder {
     border: 1px solid #7f7f7f;
     border-radius: 50%; }
   .option.active:before {
-    background: url("../img/icons/option.svg") center no-repeat; }
+    background: url("img/icons/option.svg") center no-repeat; }
 
 .rating-block {
   display: table;
@@ -380,7 +381,7 @@ input:-moz-placeholder {
   height: 14px;
   top: 0;
   left: 0;
-  background: url("../img/icons/bg_rating.svg") 0 0 no-repeat;
+  background: url("img/icons/bg_rating.svg") 0 0 no-repeat;
   z-index: 1;
   background-size: 85px 100%; }
 
@@ -390,7 +391,7 @@ input:-moz-placeholder {
   height: 14px;
   top: 0;
   left: 0;
-  background: url("../img/icons/bg_rating_active.svg") 0 0 no-repeat;
+  background: url("img/icons/bg_rating_active.svg") 0 0 no-repeat;
   z-index: 2;
   background-size: 85px 100%; }
 
@@ -1227,17 +1228,18 @@ body.ie .ibg img {
   -ms-flex: 0 1 463px;
   flex: 0 1 463px; }
   .menu__list {
+    display: flex;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between; }
-  .menu__link {
+  .menu__list a {
     font-family: Gilroy;
     font-size: 12px;
     font-weight: 400;
     color: #7D7D7D;
     padding: 8px 13px 8px 13px;
     border-radius: 18px; }
-    .menu__link:hover {
+    .menu__list a:hover {
       color: #000;
       background: #fee429b5;
       border-radius: 18px;
@@ -1341,7 +1343,7 @@ body.ie .ibg img {
   flex: 0 0 30px; }
 
 .header-wrap {
-  background-image: url("../img/header-yandex.jpg");
+  background-image: url("img/header-yandex.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
@@ -1484,7 +1486,7 @@ body.ie .ibg img {
 .main-info__item-img {
   width: 100%;
   min-height: 400px;
-  background-image: url("../img/head-banner.jpg");
+  background-image: url("img/head-banner.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -1522,7 +1524,7 @@ body.ie .ibg img {
 
 .main-info__vid {
   display: block;
-  background-image: url("../img/video.jpg");
+  background-image: url("img/video.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   -webkit-box-flex: 0;
@@ -1949,7 +1951,7 @@ body.ie .ibg img {
 
 .mentor-info {
   padding: 58px 0px 82px 0px;
-  background-image: url("../img/mentor-info-bg.jpg");
+  background-image: url("img/mentor-info-bg.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover; }
@@ -2344,7 +2346,7 @@ body.ie .ibg img {
 
 @media (max-width: 630px) {
   .main-info__item-img {
-    background-image: url("../img/header-yandex.jpg");
+    background-image: url("img/header-yandex.jpg");
     background-position: 0 0; } }
 
 @media (max-width: 600px) {
