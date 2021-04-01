@@ -1,7 +1,7 @@
 <?php
 
-define("COMPANY_NAME", "<Вписываем имя компании>");
-define("MAIL_RESEND", "<Вписываем почтовый ящик который подставляется в шапку письма>");
+define("COMPANY_NAME", "МЕТОД");
+define("MAIL_RESEND", "rudikov-web@ya.ru");
 
 //----Подключене carbon fields
 //----Инструкции по подключению полей см. в комментариях themes-fields.php
@@ -18,7 +18,7 @@ function crb_attach_theme_options() {
 add_action( 'after_setup_theme', 'crb_load' );
 function crb_load() {
 	require_once( 'carbon-fields/vendor/autoload.php' );
-	\Carbon_Fields\Carbon_Fields::boot();
+	\Carbon_Fields\Carbon_Fields::boot(); 
 } 
 
 //-----Блок описания вывода меню
@@ -102,24 +102,56 @@ add_action( 'wp_enqueue_scripts', 'my_assets' );
 	}
 
 
+add_action( 'wp_ajax_sendphone', 'sendphone' );
+add_action( 'wp_ajax_nopriv_sendphone', 'sendphone' );
+
+  function sendphone() {
+    if ( empty( $_REQUEST['nonce'] ) ) {
+      wp_die( '0' );
+    }
+    
+    if ( check_ajax_referer( 'NEHERTUTLAZIT', 'nonce', false ) ) {
+      
+      $headers = array(
+        'From: Сайт '.COMPANY_NAME.' <'.MAIL_RESEND.'>', 
+        'content-type: text/html',
+      );
+    
+      add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
+       if (wp_mail(carbon_get_theme_option( 'as_email_send' ), 'Отзыв с сайта «МЕТОД»', '<strong>Имя:</strong> '.$_REQUEST["name"]. ' <br/> <strong>Профессия:</strong> '.$_REQUEST["profess"]. ' <br/> <strong>Фото:</strong> '.$_REQUEST["file"]. ' <br/> <strong>Отзыв:</strong> '.$_REQUEST["message"], $headers))
+        wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
+      else wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>"); 
+      
+    } else {
+      wp_die( 'НО-НО-НО!', '', 403 );
+    }
+  }
+
+
+
+
+
+
+
+
 
 	// Заготовка для вызова ajax
-	add_action( 'wp_ajax_aj_fnc', 'aj_fnc' );
-	add_action( 'wp_ajax_nopriv_aj_fnc', 'aj_fnc' );
+	// add_action( 'wp_ajax_aj_fnc', 'aj_fnc' );
+	// add_action( 'wp_ajax_nopriv_aj_fnc', 'aj_fnc' );
 
-	function aj_fnc() {
-		if ( empty( $_REQUEST['nonce'] ) ) {
-			wp_die( '0' );
-		}
+	// function aj_fnc() {
+	// 	if ( empty( $_REQUEST['nonce'] ) ) {
+	// 		wp_die( '0' );
+	// 	}
 		
-		if ( check_ajax_referer( 'NEHERTUTLAZIT', 'nonce', false ) ) {
+	// 	if ( check_ajax_referer( 'NEHERTUTLAZIT', 'nonce', false ) ) {
 
 
 			
-		} else {
-			wp_die( 'НО-НО-НО!', '', 403 );
-		}
-	}
+	// 	} else {
+	// 		wp_die( 'НО-НО-НО!', '', 403 );
+	// 	}
+	// }
 	
 
 
