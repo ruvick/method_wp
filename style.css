@@ -30,7 +30,7 @@ Version: 1.0.1
 *,
 *:before,
 *:after {
-  -moz-box-sizing: border-box;
+  -moz-box-sizing: border-box; 
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
@@ -1348,9 +1348,9 @@ body.ie .ibg img {
   background-size: cover;
   background-position: center center; }
 
-.header-wrap .menu__link {
+.header-wrap .menu__list a {
   color: #A9A9A9; }
-  .header-wrap .menu__link:hover {
+  .header-wrap .menu__list a:hover {
     color: #000; }
 
 .header-wrap .header__callback p {
@@ -2028,7 +2028,7 @@ body.ie .ibg img {
 @media (max-width: 1050px) {
   .menu {
     margin: 0 15px; }
-  .menu__link {
+  .menu__list a {
     padding: 0; }
   .main-info__column {
     width: 73%; }

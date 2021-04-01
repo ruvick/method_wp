@@ -11,111 +11,12 @@
 					<div class="reviews__row d-flex">
 						
 						<div class="reviews__column d-flex">
-							
-							<a href="#" class="reviews-block__item">
-								<div class="reviews-block__initials d-flex">
-									<div class="reviews-block__img">
-										<img src="img/reviews/h-01-big.jpg" alt="">
-									</div>
-									<div class="reviews-block__name">
-										<h4>Алексей Гаврилов</h4>
-										<p>Маркетолог</p>
-									</div>
-								</div>
-								<div class="reviews-block__text">
-									<p>
-										Значимость этих проблем настолько очевидна, 
-										что дальнейшее развитие различных форм 
-										деятельности создаёт необходимость включения 
-										в производственный план целого ряда 
-										внеочередных мероприятий с учётом комплекса 
-										экспериментов, поражающих по своей 
-										масштабности и грандиозности
-									</p>
-								</div>
-								<div class="reviews-block__date">
-									10 марта 2021 года
-								</div>
-							</a>
-
-							<a href="#" class="reviews-block__item">
-								<div class="reviews-block__initials d-flex">
-									<div class="reviews-block__img">
-										<img src="img/reviews/h-01-big.jpg" alt="">
-									</div>
-									<div class="reviews-block__name">
-										<h4>Алексей Гаврилов</h4>
-										<p>Маркетолог</p>
-									</div>
-								</div>
-								<div class="reviews-block__text">
-									<p>
-										Значимость этих проблем настолько очевидна, 
-										что дальнейшее развитие различных форм 
-										деятельности создаёт необходимость включения 
-										в производственный план целого ряда 
-										внеочередных мероприятий с учётом комплекса 
-										экспериментов, поражающих по своей 
-										масштабности и грандиозности
-									</p>
-								</div>
-								<div class="reviews-block__date">
-									10 марта 2021 года
-								</div>
-							</a>
-
-							<a href="#" class="reviews-block__item">
-								<div class="reviews-block__initials d-flex">
-									<div class="reviews-block__img">
-										<img src="img/reviews/h-01-big.jpg" alt="">
-									</div>
-									<div class="reviews-block__name">
-										<h4>Алексей Гаврилов</h4>
-										<p>Маркетолог</p>
-									</div>
-								</div>
-								<div class="reviews-block__text">
-									<p>
-										Значимость этих проблем настолько очевидна, 
-										что дальнейшее развитие различных форм 
-										деятельности создаёт необходимость включения 
-										в производственный план целого ряда 
-										внеочередных мероприятий с учётом комплекса 
-										экспериментов, поражающих по своей 
-										масштабности и грандиозности
-									</p>
-								</div>
-								<div class="reviews-block__date">
-									10 марта 2021 года
-								</div>
-							</a>
-
-							<a href="#" class="reviews-block__item">
-								<div class="reviews-block__initials d-flex">
-									<div class="reviews-block__img">
-										<img src="img/reviews/h-01-big.jpg" alt="">
-									</div>
-									<div class="reviews-block__name">
-										<h4>Алексей Гаврилов</h4>
-										<p>Маркетолог</p>
-									</div>
-								</div>
-								<div class="reviews-block__text">
-									<p>
-										Значимость этих проблем настолько очевидна, 
-										что дальнейшее развитие различных форм 
-										деятельности создаёт необходимость включения 
-										в производственный план целого ряда 
-										внеочередных мероприятий с учётом комплекса 
-										экспериментов, поражающих по своей 
-										масштабности и грандиозности
-									</p>
-								</div>
-								<div class="reviews-block__date">
-									10 марта 2021 года
-								</div>
-							</a>
-
+						<?php
+							while(have_posts()):
+								the_post();
+								get_template_part('template-parts/product-reviews');  
+							endwhile;
+						?>
 						</div>
 
 						<div class="reviews__form-block d-flex">
