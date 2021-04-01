@@ -6,7 +6,13 @@
 
 			<!-- <div class="footer__item-left d-flex"> -->
 
-				<a href="https://method.market" class="header__logo logo-icon"></a>
+				<?php 
+					$logof = wp_get_attachment_image_src( carbon_get_theme_option('as_logo_white'), 'full')[0];
+						if(empty($logof)) {
+							$logof = get_template_directory_uri() . '/img/icons/logo-f.png';
+				} ?>
+
+				<a href="https://method.market" class="header__logo logo-icon" style="background-image: url(<?php echo $logof?>);"></a>
 
 				<div class="footer__text">
 					<p><? echo carbon_get_theme_option("subtitle_footer"); ?></p>
@@ -21,7 +27,7 @@
 			</div>
 
 		</div>
-	</footer> 
+	</footer>  
 
 </div>
 
