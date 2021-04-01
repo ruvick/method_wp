@@ -130,7 +130,7 @@
 								</p>
 							</div>
 						</div>
-						<a href="#" class="reviews-block__btn">Читать больше отзывов...</a>
+						<a href="<?php echo get_category_link(4);?>" class="reviews-block__btn">Читать больше отзывов...</a>
 
 					</div>
 
