@@ -19,13 +19,14 @@
 							<?php wp_nav_menu( array('theme_location' => 'menu_main','menu_class' => 'menu__list',	'container_class' => 'menu__list','container' => false )); ?>
 					</nav>  
 					<nav class="mob-menu">
-						<ul class="mob-menu__list">
+						<?php wp_nav_menu( array('theme_location' => 'menu_main','menu_class' => 'mob-menu__list',	'container_class' => 'mob-menu__list','container' => false )); ?>
+<!-- 						<ul class="mob-menu__list">
 							<li><a href="#" class="menu__link">Каталог методов</a></li>
 							<li><a href="#" class="menu__link">Что такое метод</a></li>
 							<li><a href="#" class="menu__link">Каталог</a></li>
 							<li><a href="#" class="menu__link">Отзывы</a></li>
-							<li><a href="#" class="menu__link">Статьи</a></li>
-						</ul>
+							<li><a href="#" class="menu__link">Статьи</a></li> 
+						</ul> -->
 					</nav>
 				</div>
 
