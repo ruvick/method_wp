@@ -4,7 +4,14 @@
 		<div class="header__row d-flex">
 
 			<div class="header__row-left d-flex">
-				<a href="https://method.market" class="header__logo logo-icon"></a>
+
+				<?php 
+					$logoh = wp_get_attachment_image_src( carbon_get_theme_option('as_logo'), 'full')[0];
+						if(empty($logoh)) {
+							$logoh = get_template_directory_uri() . '/img/icons/logo-h.png';
+				} ?>
+
+				<a href="https://method.market" class="header__logo logo-icon" style="background-image: url(<?php echo $logoh?>);"></a> 
 
 				<div class="header__menu menu">
 

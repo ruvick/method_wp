@@ -1,22 +1,29 @@
 		<div class="header-wrap">
-	<header id="header" class="header">
-		<div class="container">
+			<header id="header" class="header">
+				<div class="container">
 
-			<div class="header__row d-flex">
+					<div class="header__row d-flex">
 
-				<div class="header__row-left d-flex">
-					<a href="https://method.market" class="header__logo logo-icon logo-icon-yandex"></a>
+						<div class="header__row-left d-flex">
 
-					<div class="header__menu menu">
+							<?php 
+							$logoh = wp_get_attachment_image_src( carbon_get_theme_option('as_logo'), 'full')[0];
+							if(empty($logoh)) {
+								$logoh = get_template_directory_uri() . '/img/icons/logo-yandex-h.png';
+							} ?>
 
-						<nav class="menu__body">
-							<?php wp_nav_menu( array('theme_location' => 'menu_main','menu_class' => 'menu__list',	'container_class' => 'menu__list','container' => false )); ?>
+							<a href="https://method.market" class="header__logo logo-icon logo-icon-yandex" style="background-image: url(<?php echo $logoh?>);"></a>
+
+							<div class="header__menu menu">
+
+								<nav class="menu__body">
+									<?php wp_nav_menu( array('theme_location' => 'menu_main','menu_class' => 'menu__list',	'container_class' => 'menu__list','container' => false )); ?>
 <!-- 							<ul class="menu__list d-flex">
 								<li><a href="#" class="menu__link menu__link_cat">Каталог методов</a></li>
 								<li><a href="#" class="menu__link">Что такое метод</a></li>
 								<li><a href="#" class="menu__link">Каталог</a></li>
 								<li><a href="#" class="menu__link">Отзывы</a></li>
-								<li><a href="#" class="menu__link">Статьи</a></li>
+								<li><a href="#" class="menu__link">Статьи</a></li> 
 							</ul> -->
 						</nav> 
 						<nav class="mob-menu">
