@@ -10,7 +10,7 @@
 
 					<nav class="menu__body">
 <!-- 						<ul class="menu__list d-flex">
-							<li><a href="#" class="menu__link menu__link_cat">Каталог методов</a></li>
+							<li><a href="#" class="menu__link menu__link_cat">Каталог методов</a></li> 
 							<li><a href="#" class="menu__link">Что такое метод</a></li>
 							<li><a href="#" class="menu__link">Каталог</a></li>
 							<li><a href="#" class="menu__link">Отзывы</a></li>
@@ -41,7 +41,7 @@
 
 
 				<div class="header__callback d-flex">
-					<a href="tel:88001234567">8 (800) 123-45-67</a>
+					<a href="tel:<? echo preg_replace('/[^0-9]/', '', $tel); ?>"><? echo $tel = carbon_get_theme_option("as_phones_1"); ?></a> 
 					<p>по всем вопросам</p>
 				</div>
 

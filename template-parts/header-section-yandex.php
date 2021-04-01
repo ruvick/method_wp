@@ -8,11 +8,7 @@
 					<a href="https://method.market" class="header__logo logo-icon logo-icon-yandex"></a>
 
 					<div class="header__menu menu">
-<!-- 						<div class="menu__icon icon-menu"> 
-							<span></span>
-							<span></span>
-							<span></span> 
-						</div> -->
+
 						<nav class="menu__body">
 							<?php wp_nav_menu( array('theme_location' => 'menu_main','menu_class' => 'menu__list',	'container_class' => 'menu__list','container' => false )); ?>
 <!-- 							<ul class="menu__list d-flex">
@@ -46,7 +42,7 @@
 
 
 					<div class="header__callback header__callback_yandex d-flex">
-						<a href="tel:88001234567">8 (800) 123-45-67</a>
+						<a href="tel:<? echo preg_replace('/[^0-9]/', '', $tel); ?>"><? echo $tel = carbon_get_theme_option("as_phones_1"); ?></a>
 						<p>по всем вопросам</p>
 					</div>
 

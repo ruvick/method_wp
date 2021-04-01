@@ -18,7 +18,8 @@ Container::make( 'theme_options', __( 'Настройки темы', 'crb' ) )
       Field::make( 'image', 'as_logo_white', 'Логотип в подвале')
         ->set_width(30),
       Field::make('text', 'about_home_title', 'Заголовок на главной'),
-      Field::make('rich_text', 'about_home', 'О нашей компании')
+      Field::make('rich_text', 'about_home', 'О нашей компании'),
+      Field::make('text', 'subtitle_footer', 'Текст в подвале'),
     ))
     ->add_tab('Баннер', array(
       Field::make('complex', 'auto_banner', 'Баннер на главной')
@@ -32,44 +33,44 @@ Container::make( 'theme_options', __( 'Настройки темы', 'crb' ) )
         ))
     ))
     ->add_tab('Контакты', array(
-        Field::make( 'text', 'as_company', __( 'Название' ) )
+        // Field::make( 'text', 'as_company', __( 'Название' ) )
+        //   ->set_width(50),
+        // Field::make( 'text', 'as_schedule', __( 'Режим работы' ) )
+        //   ->set_width(50),
+        Field::make( 'text', 'as_phones_1', __( 'Телефон в шапке' ) )
           ->set_width(50),
-        Field::make( 'text', 'as_schedule', __( 'Режим работы' ) )
-          ->set_width(50),
-        Field::make( 'text', 'as_phones_1', __( 'Телефон' ) )
-          ->set_width(50),
-        Field::make( 'text', 'as_phone_2', __( 'Телефон дополнительный' ) )
+        Field::make( 'text', 'as_phones_2', __( 'Телефон в подвале' ) )
           ->set_width(50),
         Field::make( 'text', 'as_email', __( 'Email' ) )
           ->set_width(50),
         Field::make( 'text', 'as_email_send', __( 'Email для отправки' ) )
           ->set_width(50),
-        Field::make( 'text', 'as_inn', __( 'ИНН' ) )
-          ->set_width(50),
-        Field::make( 'text', 'as_orgn', __( 'ОРГН' ) )
-          ->set_width(50),
-        Field::make( 'text', 'as_kpp', __( 'КПП' ) )
-          ->set_width(50),
-        Field::make( 'text', 'as_address', __( 'Адрес' ) )
-          ->set_width(50),
-        Field::make( 'text', 'as_bik', __( 'БИК' ) )
-          ->set_width(50),
-        Field::make( 'text', 'as_rs', __( 'Р/С' ) )
-          ->set_width(50),
-        Field::make( 'text', 'as_ks', __( 'К/С' ) )
-          ->set_width(50),
-        Field::make( 'text', 'as_insta', __( 'instagram' ) )
-          ->set_width(50),
-        Field::make( 'text', 'as_face', __( 'facebook' ) )
-          ->set_width(50),
-        Field::make( 'text', 'as_vk', __( 'Вконтакте' ) )
-          ->set_width(50),
-        Field::make( 'text', 'as_telegr', __( 'telegram' ) )
-          ->set_width(50),
-        Field::make('text', 'map_point', 'Координаты карты')
-          ->set_width(50),
-        Field::make('text', 'text_map', 'Текст метки карты')
-          ->set_width(50),
+        // Field::make( 'text', 'as_inn', __( 'ИНН' ) )
+        //   ->set_width(50),
+        // Field::make( 'text', 'as_orgn', __( 'ОРГН' ) )
+        //   ->set_width(50),
+        // Field::make( 'text', 'as_kpp', __( 'КПП' ) )
+        //   ->set_width(50),
+        // Field::make( 'text', 'as_address', __( 'Адрес' ) )
+        //   ->set_width(50),
+        // Field::make( 'text', 'as_bik', __( 'БИК' ) )
+        //   ->set_width(50),
+        // Field::make( 'text', 'as_rs', __( 'Р/С' ) )
+        //   ->set_width(50),
+        // Field::make( 'text', 'as_ks', __( 'К/С' ) )
+        //   ->set_width(50),
+        // Field::make( 'text', 'as_insta', __( 'instagram' ) )
+        //   ->set_width(50),
+        // Field::make( 'text', 'as_face', __( 'facebook' ) )
+        //   ->set_width(50),
+        // Field::make( 'text', 'as_vk', __( 'Вконтакте' ) )
+        //   ->set_width(50),
+        // Field::make( 'text', 'as_telegr', __( 'telegram' ) )
+        //   ->set_width(50),
+        // Field::make('text', 'map_point', 'Координаты карты')
+        //   ->set_width(50),
+        // Field::make('text', 'text_map', 'Текст метки карты')
+        //   ->set_width(50),
     ) );
 Container::make('post_meta', 'resort_city', 'Доп. поля')
  // ->show_on_template('page-services.php')
