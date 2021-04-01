@@ -9,10 +9,7 @@ get_header(); ?>
 <section class="header-info">
 	<div class="container">
 
-		<h1>
-			<span>Метод</span> “Быстрый запуск рекламной <br>
-			кампании Яндекс.Директ (РСЯ)
-		</h1>
+		<h1><?php the_title();?></h1>
 		<p>
 			Создайте прогнозируемый поток целевых клиентов по нужной <br>
 			стоимости, настроив рекламную кампанию в релкамной сети <br>
@@ -28,7 +25,7 @@ get_header(); ?>
 
 				<div class="result-block__item d-flex">
 					<div class="result-block__img">
-						<img src="img/result/result-01.jpg" alt="">
+						<img src="<?php echo get_template_directory_uri();?>/img/result/result-01.jpg" alt="">
 					</div>
 					<p>
 						Настроенная и отправленная на 
@@ -39,7 +36,7 @@ get_header(); ?>
 
 				<div class="result-block__item d-flex">
 					<div class="result-block__img">
-						<img src="img/result/result-02.jpg" alt="">
+						<img src="<?php echo get_template_directory_uri();?>/img/result/result-02.jpg" alt="">
 					</div>
 					<p>
 						Подобраны ключевые слова
@@ -50,7 +47,7 @@ get_header(); ?>
 
 				<div class="result-block__item d-flex">
 					<div class="result-block__img">
-						<img src="img/result/result-03.jpg" alt="">
+						<img src="<?php echo get_template_directory_uri();?>/img/result/result-03.jpg" alt="">
 					</div>
 					<p>
 						Получены знания по настройке 
@@ -81,7 +78,7 @@ get_header(); ?>
 				<div class="importance__card-col">
 					<div class="importance__card">
 						<div class="importance__card-img">
-							<img src="img/importance-01.jpg" alt="">
+							<img src="<?php echo get_template_directory_uri();?>/img/importance-01.jpg" alt="">
 						</div>
 						<p>
 							Нужен целевой трафик на сайт 
@@ -93,7 +90,7 @@ get_header(); ?>
 				<div class="importance__card-col">
 					<div class="importance__card">
 						<div class="importance__card-img">
-							<img src="img/importance-02.jpg" alt="">
+							<img src="<?php echo get_template_directory_uri();?>/img/importance-02.jpg" alt="">
 						</div>
 						<p>
 							Бизнес предпологает большое 
@@ -105,7 +102,7 @@ get_header(); ?>
 				<div class="importance__card-col">
 					<div class="importance__card">
 						<div class="importance__card-img">
-							<img src="img/importance-03.jpg" alt="">
+							<img src="<?php echo get_template_directory_uri();?>/img/importance-03.jpg" alt="">
 						</div>
 						<p>
 							Вы хотите понимать сами, как 
@@ -129,7 +126,7 @@ get_header(); ?>
 				<div class="waiting__card-col">
 					<div class="waiting__card">
 						<div class="waiting__card-img">
-							<img src="img/waiting-01.jpg" alt="">
+							<img src="<?php echo get_template_directory_uri();?>/img/waiting-01.jpg" alt="">
 						</div>
 						<h4>Механизм работы РСЯ</h4>
 						<p>
@@ -144,7 +141,7 @@ get_header(); ?>
 				<div class="waiting__card-col">
 					<div class="waiting__card">
 						<div class="waiting__card-img">
-							<img src="img/waiting-02.jpg" alt="">
+							<img src="<?php echo get_template_directory_uri();?>/img/waiting-02.jpg" alt="">
 						</div>
 						<h4>Ключевые фразы</h4>
 						<p>
@@ -159,7 +156,7 @@ get_header(); ?>
 				<div class="waiting__card-col">
 					<div class="waiting__card">
 						<div class="waiting__card-img">
-							<img src="img/waiting-03.jpg" alt="">
+							<img src="<?php echo get_template_directory_uri();?>/img/waiting-03.jpg" alt="">
 						</div>
 						<h4>Настройки рекламной кампании</h4>
 						<p>
@@ -173,7 +170,7 @@ get_header(); ?>
 					<div class="waiting__card-col">
 						<div class="waiting__card">
 							<div class="waiting__card-img">
-								<img src="img/waiting-04.jpg" alt="">
+								<img src="<?php echo get_template_directory_uri();?>/img/waiting-04.jpg" alt="">
 							</div>
 							<h4>Минус-слова</h4>
 							<p>
@@ -205,7 +202,7 @@ get_header(); ?>
 					<!-- <div class="method-info__col"> -->
 						<div class="method-info__item d-flex">
 							<div class="method-info__item-img">
-								<img src="img/method-info-01.png" alt="">
+								<img src="<?php echo get_template_directory_uri();?>/img/method-info-01.png" alt="">
 							</div>
 							<p>
 								Индивидуальный подход 
@@ -217,7 +214,7 @@ get_header(); ?>
 						<!-- <div class="method-info__col"> -->
 							<div class="method-info__item d-flex">
 								<div class="method-info__item-img">
-									<img src="img/method-info-02.png" alt="">
+									<img src="<?php echo get_template_directory_uri();?>/img/method-info-02.png" alt="">
 								</div>
 								<p>
 									Ценный результат с которым 
@@ -229,7 +226,7 @@ get_header(); ?>
 							<!-- <div class="method-info__col"> -->
 								<div class="method-info__item d-flex">
 									<div class="method-info__item-img">
-										<img src="img/method-info-03.png" alt="">
+										<img src="<?php echo get_template_directory_uri();?>/img/method-info-03.png" alt="">
 									</div>
 									<p>
 										Инструктор, который 
