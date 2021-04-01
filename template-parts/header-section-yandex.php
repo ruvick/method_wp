@@ -5,7 +5,7 @@
 			<div class="header__row d-flex">
 
 				<div class="header__row-left d-flex">
-					<a href="#" class="header__logo logo-icon logo-icon-yandex"></a>
+					<a href="https://method.market" class="header__logo logo-icon logo-icon-yandex"></a>
 
 					<div class="header__menu menu">
 <!-- 						<div class="menu__icon icon-menu"> 
