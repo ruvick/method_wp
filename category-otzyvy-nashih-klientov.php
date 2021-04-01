@@ -6,7 +6,7 @@
 
 			<section id="reviews" class="reviews">
 				<div class="container">
-					<h1>Отзывы наших клиентов</h1>
+					<h1><?php single_cat_title( '', true );?></h1>
 
 					<div class="reviews__row d-flex">
 						
