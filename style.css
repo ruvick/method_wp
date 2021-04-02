@@ -1487,7 +1487,7 @@ body.ie .ibg img {
 .main-info__item-img {
   width: 100%;
   min-height: 400px;
-  background-image: url("img/head-banner.jpg");
+  /*background-image: url("img/head-banner.jpg");*/
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

@@ -13,25 +13,56 @@ use Carbon_Fields\Field;
 
 Container::make( 'theme_options', __( 'Настройки темы', 'crb' ) )
     ->add_tab('Главная', array(
-      Field::make( 'image', 'as_logo', 'Логотип в шапке')
+      Field::make( 'image', 'as_logo', 'Логотип в шапке') 
         ->set_width(30),
       Field::make( 'image', 'as_logo_white', 'Логотип в подвале')
         ->set_width(30),
+      Field::make( 'image', 'as_home_bg', 'Банер на главной') 
+        ->set_width(30),
       Field::make('text', 'about_home_title', 'Заголовок на главной'),
-      Field::make('rich_text', 'about_home', 'О нашей компании'),
-      Field::make('text', 'subtitle_footer', 'Текст в подвале'),
+      Field::make('text', 'about_home_subtitle', 'Подзаголовок на главной'),
+      Field::make('text', 'about_home_button', 'Текст кнопки банера на главной')
+        ->set_width(50),
+      // Field::make('text', 'about_subscribe_button', 'Текст кнопки Блока "Подпишитесь"')
+      //   ->set_width(50),
+      // Field::make('rich_text', 'about_home', 'О нашей компании'),
+      Field::make('text', 'subtitle_footer', 'Текст в подвале'), 
     ))
-    ->add_tab('Баннер', array(
+    ->add_tab('Слайдер', array(
       Field::make('complex', 'auto_banner', 'Баннер на главной')
         ->add_fields(array(
-          Field::make('image', 'auto_banner_img', 'Картинка')
-            ->set_width(30),
-          Field::make('text', 'auto_banner_title', 'Заголовок на главной')
-            ->set_width(30),
-          Field::make('text', 'auto_banner_subtitle', 'Подзаголовок на главной')
-            ->set_width(30),
+      Field::make('image', 'img_sl', 'Фото слайдера')
+        ->set_width(50),
         ))
     ))
+    ->add_tab('Инфо блок справа', array(
+      Field::make( 'image', 'img_block_method', 'Картинка блока "Что такое Метод"') 
+        ->set_width(50),
+      Field::make('text', 'video_block_method', 'Видео блока "Что такое Метод"')
+        ->set_width(50),
+      Field::make('text', 'block_method_title', 'Заголовок блока "Что такое Метод"')
+        ->set_width(50),
+      Field::make('text', 'block_method_subtitle', 'Подзаголовок блока "Что такое Метод"')
+        ->set_width(50),
+      Field::make('text', 'subscribe_title', 'Заголовок блока "Подпишитесь"')
+        ->set_width(50),
+      Field::make('text', 'subscribe_subtitle', 'Подзаголовок блока "Подпишитесь"')
+        ->set_width(50),
+      Field::make('text', 'about_subscribe_button', 'Текст кнопки Блока "Подпишитесь"')
+        ->set_width(50),
+    ))
+    // ->add_tab('Блок Отзывы', array(
+    //   Field::make('text', 'reviews_title', 'Заголовок блока "Отзывы"')
+    //     ->set_width(50),
+    //   Field::make('text', 'block_method_subtitle', 'Подзаголовок блока "Что такое Метод"')
+    //     ->set_width(50),
+    //   Field::make('text', 'subscribe_title', 'Заголовок блока "Подпишитесь"')
+    //     ->set_width(50),
+    //   Field::make('text', 'subscribe_subtitle', 'Подзаголовок блока "Подпишитесь"')
+    //     ->set_width(50),
+    //   Field::make('text', 'about_subscribe_button', 'Текст кнопки Блока "Подпишитесь"')
+    //     ->set_width(50),
+    // ))
     ->add_tab('Контакты', array(
         // Field::make( 'text', 'as_company', __( 'Название' ) )
         //   ->set_width(50),
