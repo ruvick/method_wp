@@ -9,7 +9,7 @@
 					$logoh = wp_get_attachment_image_src( carbon_get_theme_option('as_logo'), 'full')[0];
 						if(empty($logoh)) {
 							$logoh = get_template_directory_uri() . '/img/icons/logo-h.png';
-				} ?>
+				} ?> 
 
 				<a href="https://method.market" class="header__logo logo-icon" style="background-image: url(<?php echo $logoh?>);"></a> 
 
@@ -37,13 +37,15 @@
 					</nav>
 				</div>
 
-			</div>
+			</div> 
 
 			<div class="header__row-right d-flex">
 
 				<div class="header__search search">
-					<input type="text" placeholder="Искать метод" class="search__input input">
-					<button type="submit" tabindex="2" id="searchsubmit" class="sub-search" value=""></button>
+					<form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ) ?>">
+						<input type="text" placeholder="Искать метод" class="search__input input" value="<?php echo get_search_query() ?>" name="s" id="s">
+						<button type="submit" tabindex="2" id="searchsubmit" class="sub-search" value="найти"></button>
+					</form>
 				</div>
 				<button class="mob-search"></button>
 
