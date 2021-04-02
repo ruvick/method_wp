@@ -103,20 +103,38 @@ Container::make( 'theme_options', __( 'Настройки темы', 'crb' ) )
         // Field::make('text', 'text_map', 'Текст метки карты')
         //   ->set_width(50),
     ) );
-Container::make('post_meta', 'resort_city', 'Доп. поля')
- // ->show_on_template('page-services.php')
-->show_on_post_type('page')
+Container::make('post_meta', 'article_author', 'Блок автора')
+ ->show_on_template('single-article.php')
+// ->show_on_post_type('page')
 ->add_fields(array(
-  Field::make('image', 'resort_banner', 'Фото баннера')
-    ->help_text( 'Изображение не менее 1070 х 758px'),
+  Field::make('image', 'author_img', 'Фото автора')
+    ->set_width(20),
+  Field::make('text', 'author_name', 'Имя автора')
+    ->set_width(35),
+  Field::make('text', 'author_special', 'Специализация автора')
+    ->set_width(35),
+  Field::make('text', 'author_subtitle', 'Подзаголовок блока автора')
+    ->set_width(50),
+    // ->help_text( 'Изображение не менее 1070 х 758px'),
   // Field::make('color', 'color_field', 'Цвет секции'),
-  Field::make( 'complex', 'complex_field', 'Текстовый блок' )
-  ->add_fields( array(
-    Field::make("checkbox", "checkbox_pay_exc", "Серый цвет") 
-  ->help_text('Активирует серый цвет блока"')
-    ->set_width( 5 ),
-    Field::make( 'rich_text', 'text_field', 'Текст блока' )
-    ->set_width( 95 ), ) ),
+  // Field::make( 'complex', 'complex_field', 'Текстовый блок' )
+  // ->add_fields( array(
+  //   Field::make("checkbox", "checkbox_pay_exc", "Серый цвет") 
+  // ->help_text('Активирует серый цвет блока"')
+  //   ->set_width( 5 ),
+  //   Field::make( 'rich_text', 'text_field', 'Текст блока' )
+  //   ->set_width( 95 ), ) ),
+));
+Container::make('post_meta', 'article_author', 'Картинки статьи')
+ ->show_on_template('single-article.php')
+// ->show_on_post_type('page')
+->add_fields(array(
+  Field::make('image', 'top_bg', 'Фон верхнего блока')
+    ->set_width(30),
+  Field::make('image', 'sidebar_img_t', 'Первая картинка сайдбара')
+    ->set_width(30),
+  Field::make('image', 'sidebar_img_b', 'Вторая картинка сайдбара')
+    ->set_width(30),
 ));
 // Container::make('post_meta', 'ca_product', 'Доп поля')
 //   ->where('post_template', '=', 'page-product.php')

@@ -7,8 +7,14 @@
 		<div class="prod-card__text">
 			<a href="#" class="prod-card__cat-info">#Маркетинг</a>
 			<h3><? the_title();?></h3>
-			<div class="prod-card__subtitle"><?php the_excerpt(); ?></div>
+			<div class="prod-card__subtitle">
+					<?php 
+						$maxchar = 200;
+						$text = strip_tags( get_the_excerpt() );
+						echo mb_substr( $text, 0, $maxchar );
+					?>
+			</div>
 		</div>
 		<a href="<?echo get_the_permalink(get_the_ID());?>" class="prod-card__btn btn">Узнать подробнее</a>
 	</div> 
-</div>
+</div> 

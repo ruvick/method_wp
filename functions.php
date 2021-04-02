@@ -134,7 +134,6 @@ add_action( 'wp_ajax_nopriv_sendphone', 'sendphone' );
 
 
 
-
 	// Заготовка для вызова ajax
 	// add_action( 'wp_ajax_aj_fnc', 'aj_fnc' );
 	// add_action( 'wp_ajax_nopriv_aj_fnc', 'aj_fnc' );
