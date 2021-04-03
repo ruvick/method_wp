@@ -136,6 +136,87 @@ Container::make('post_meta', 'article_author', 'Картинки статьи')
   Field::make('image', 'sidebar_img_b', 'Вторая картинка сайдбара')
     ->set_width(30),
 ));
+Container::make('post_meta', 'method_single', 'Первый блок Шапка')
+ ->show_on_template('single-method.php')
+// ->show_on_post_type('page')
+->add_fields(array(
+  Field::make('image', 'method_bg', 'Фон шакпи')
+    ->set_width(30),
+  Field::make('text', 'method_subtitle', 'Подзаголовок')
+    ->set_width(30),
+  Field::make('text', 'method_button', 'Текст кнопки')
+    ->set_width(30),
+  Field::make('text', 'result_method_title', 'Заголовок нижнего блока в шапке')
+    ->set_width(30),
+  Field::make( 'complex', 'result_method_total', "Картинка с текстом" )
+    ->set_max(3)
+    ->add_fields( array(
+  Field::make('image', 'result_method_img', 'Картинка')
+    ->set_width(30),
+  Field::make('text', 'result_method_text', 'Текст рядом с картинокй')
+    ->set_width(30),
+  ) ),
+));
+Container::make('post_meta', 'method_single', 'Второй блок')
+ ->show_on_template('single-method.php')
+// ->show_on_post_type('page')
+->add_fields(array(
+  Field::make('text', 'section_two_title', 'Заголовок')
+    ->set_width(30),
+  Field::make( 'complex', 'section_two_complex', "Карточка" )
+    // ->set_max(3)
+    ->add_fields( array(
+  Field::make('image', 'section_two_card_img', 'Картинка')
+    ->set_width(30),
+  Field::make('text', 'section_two_card_text', 'Текст карточки')
+    ->set_width(30),
+  ) ),
+));
+Container::make('post_meta', 'method_single', 'Третий блок')
+ ->show_on_template('single-method.php')
+// ->show_on_post_type('page')
+->add_fields(array(
+  Field::make('text', 'section_three_title', 'Заголовок')
+    ->set_width(30),
+  Field::make( 'complex', 'section_three_complex', "Карточка" )
+    // ->set_max(3)
+    ->add_fields( array(
+  Field::make('image', 'section_three_card_img', 'Картинка')
+    ->set_width(30),
+  Field::make('text', 'section_three_card_title', 'Заголовок карточки')
+    ->set_width(30),
+  Field::make('text', 'section_three_card_text', 'Текст карточки')
+    ->set_width(30),
+  ) ),
+));
+Container::make('post_meta', 'method_single', 'Четвертый блок')
+ ->show_on_template('single-method.php')
+// ->show_on_post_type('page')
+->add_fields(array(
+  Field::make('text', 'section_four_title', 'Заголовок')
+    ->set_width(30),
+  Field::make('text', 'section_four_subtitle', 'Подзаголовок')
+    ->set_width(30),
+  Field::make( 'complex', 'section_four_complex', "Карточка" )
+    // ->set_max(3)
+    ->add_fields( array(
+  Field::make('image', 'section_four_card_img', 'Картинка')
+    ->set_width(30),
+  Field::make('text', 'section_four_card_text', 'Текст карточки')
+    ->set_width(30),
+  ) ),
+));
+Container::make('post_meta', 'method_single', 'Пятый блок')
+ ->show_on_template('single-method.php')
+// ->show_on_post_type('page')
+->add_fields(array(
+  Field::make('image', 'section_five_bg', 'Картинка')
+    ->set_width(30),
+  Field::make('text', 'section_five_title', 'Заголовок')
+    ->set_width(30),
+  Field::make('text', 'section_four_button', 'Текст кнопки')
+    ->set_width(30),
+));
 // Container::make('post_meta', 'ca_product', 'Доп поля')
 //   ->where('post_template', '=', 'page-product.php')
 //   ->add_fields(array(

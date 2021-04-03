@@ -21,7 +21,7 @@ get_header(); ?>
 
 				<div class="intro__item-block d-flex">
 					<div class="intro__initials d-flex">
-						<div class="intro__block-img">
+						<div class="intro__block-img"> 
 							<?php 
 							$authorImg = wp_get_attachment_image_src( carbon_get_the_post_meta('author_img'), 'full')[0];
 							if(empty($authorImg)) {
@@ -37,7 +37,7 @@ get_header(); ?>
 
 					<div class="article__title-block">
 						<h1><?php the_title();?></h1>
-						<p><?echo carbon_get_post_meta(get_the_ID(),"author_subtitle"); ?></p>
+						<p><?echo carbon_get_post_meta(get_the_ID(),"method_subtitle"); ?></p>
 					</div>
 				</div>
 

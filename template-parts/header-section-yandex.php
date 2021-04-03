@@ -1,4 +1,10 @@
-		<div class="header-wrap">
+			<?php 
+			$methodBg = wp_get_attachment_image_src( carbon_get_the_post_meta('method_bg'), 'full')[0];
+					// if(empty($sidebarImg)) {
+					// 	$sidebarImg = get_template_directory_uri() . '/img/header-yandex.jpg'; } 
+			?>
+
+		<div class="header-wrap" style="background-image: url(<?php echo $methodBg?>);">
 			<header id="header" class="header">
 				<div class="container">
 

@@ -1344,7 +1344,8 @@ body.ie .ibg img {
   flex: 0 0 30px; }
 
 .header-wrap {
-  background-image: url("img/header-yandex.jpg");
+  /*background-image: url("img/header-yandex.jpg");*/
+  background-color: grey;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
@@ -1985,7 +1986,7 @@ body.ie .ibg img {
 
 .mentor-info {
   padding: 58px 0px 82px 0px;
-  background-image: url("img/mentor-info-bg.jpg");
+  /*background-image: url("img/mentor-info-bg.jpg");*/
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover; }
