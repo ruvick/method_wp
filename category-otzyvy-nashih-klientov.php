@@ -30,7 +30,7 @@
 						<input type="text" name="name" placeholder="Ваше имя" id="form-name" class="reviews__form-input input">
 						<input type="text" name="profess" placeholder="Какая у вас профессия?" id="form-profess" class="reviews__form-input input">
 						<div class="reviews__form-input-wrapper reviews__form-input">
-							<input type="file" name="file" id="input__file" class="reviews__form-input-file input__file">
+							<input type="file" name="file" multiple="multiple" accept=".txt,image/*" id="input__file" class="reviews__form-input-file file_name input__file"> 
 							<label for="input__file" class="input__file-button">
 								<span class="input__file-button-text">Загрузите фото (Не обязательно)</span>
 							</label>

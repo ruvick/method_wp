@@ -189,6 +189,90 @@ var inputmask_phone = {"mask": "+9(999)999-99-99"};
 jQuery("input[type=tel]").inputmask(inputmask_phone);  
 
 
+$(".main-info__btn").on('click', function(e) {
+	e.preventDefault();
+	// jQuery(".windows_form h2").html(jQuery(this).data("winheader"));
+	// jQuery(".windows_form .subtitle").html(jQuery(this).data("winsubheader"));
+	jQuery("#workshop").arcticmodal();
+});  
+
+$(".login-btn").on('click', function(e) {
+	e.preventDefault();
+	// jQuery(".windows_form h2").html(jQuery(this).data("winheader"));
+	// jQuery(".windows_form .subtitle").html(jQuery(this).data("winsubheader"));
+	jQuery("#wsubscribe").arcticmodal();
+});  
+
+
+
+
+var files; // переменная. будет содержать данные файлов
+
+// заполняем переменную данными файлов, при изменении значения file поля
+$('input[type=file]').on('change', function(){
+	files = this.files;
+});
+
+
+// обработка и отправка AJAX запроса при клике на кнопку upload_files
+$('.newButton').on( 'click', function( event ){
+
+	event.stopPropagation(); // остановка всех текущих JS событий
+	event.preventDefault();  // остановка дефолтного события для текущего элемента - клик для <a> тега
+
+	// ничего не делаем если files пустой
+	if( typeof files == 'undefined' ) return;
+
+	// создадим данные файлов в подходящем для отправки формате
+	var data = new FormData();
+	$.each( files, function( key, value ){
+		data.append( key, value );
+	});
+
+	// добавим переменную идентификатор запроса
+	data.append( 'my_file_upload', 1 );
+
+	// AJAX запрос
+	$.ajax({
+		url         : './submit.php',
+		type        : 'POST',
+		data        : data,
+		cache       : false,
+		dataType    : 'json',
+		// отключаем обработку передаваемых данных, пусть передаются как есть
+		processData : false,
+		// отключаем установку заголовка типа запроса. Так jQuery скажет серверу что это строковой запрос
+		contentType : false,
+		// функция успешного ответа сервера
+		success     : function( respond, status, jqXHR ){
+
+			// ОК
+			if( typeof respond.error === 'undefined' ){
+				// файлы загружены, делаем что-нибудь
+
+				// покажем пути к загруженным файлам в блок '.ajax-reply'
+
+				var files_path = respond.files;
+				var html = '';
+				$.each( files_path, function( key, val ){
+					 html += val +'<br>';
+				} )
+
+				$('.ajax-reply').html( html );
+			}
+			// error
+			else {
+				console.log('ОШИБКА: ' + respond.error );
+			}
+		},
+		// функция ошибки ответа сервера
+		error: function( jqXHR, status, errorThrown ){
+			console.log( 'ОШИБКА AJAX запроса: ' + status, jqXHR );
+		}
+
+	});
+
+});
 
 //Валидация телефона + Отправщик
 $('.newButton').click(function(e){ 
@@ -196,8 +280,10 @@ $('.newButton').click(function(e){
 	e.preventDefault();
 	var name = $("#form-name").val();
 	var profess = $("#form-profess").val(); 
-	var file = $("#input__file").val(); 
-	var message = $("#form-message").val();
+	// var file = $("#input__file").val(); 
+	var message = $("#form-message").val(); 
+
+	var file1 = $("#input__file").val(); 
 
 	if (jQuery("#form-name").val() == "") {
 		jQuery("#form-name").css("border","1px solid red");
@@ -222,7 +308,8 @@ $('.newButton').click(function(e){
 				nonce: allAjax.nonce,
 				name: name,
 				profess: profess,
-				file: file,
+				// file: file,
+				img1:file1,
 				message: message,
 			}   
 			);
@@ -239,7 +326,41 @@ $('.newButton').click(function(e){
      }
 });
 
+	// jQuery('input[type=file]').change(function(){
+	//     var file_data = jQuery(this).prop('files')[0];
+	//     var form_data = new FormData();
+	// 	var file_span = $(this).parent().parent().find('.file_name');
+	// 	var file_name = $(this).parent().parent().find('.popup__upload');
+	//     form_data.append('file', file_data);
+	//     form_data.append('action', "main_load_file");
+	//     form_data.append('nonce', allAjax.nonce);
 
+	// 	jQuery(".lds-ellipsis").css("visibility","visible");
+	//     var  jqXHR = jQuery.ajax({       
+	//         url: allAjax.ajaxurl,
+	//         dataType: 'text',
+	//         cache: false,
+	//         contentType: false,
+	//         processData: false,
+	//         data: form_data, 
+	//         type: 'post'    
+	//     });
+
+	//     jqXHR.done(function (responce) {
+	// 		file_span.val(responce);
+	// 		file_name.html(responce.split("/").pop());
+
+	//         jQuery(".lds-ellipsis").css("visibility","hidden");
+	//     });
+	            
+	//     jqXHR.fail(function (responce) {
+	    
+	//         if (responce.responseText == "0")
+	// 		file_name.html("<span style = 'color:red;'>Error!</span>");
+	//         else
+	// 		file_name.html(responce.responseText);
+	//     });
+	// });
 
 
 

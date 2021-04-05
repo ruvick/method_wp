@@ -27,7 +27,7 @@
 							$pict = carbon_get_theme_option('auto_banner');
 							if($pict) {
 								$pictIndex = 0;
-								foreach($pict as $item) {
+								foreach($pict as $item) { 
 									?>
 									<div class="slider__item">
 										<img src = "<?php echo wp_get_attachment_image_src($item['img_sl'], 'full')[0];?>" />

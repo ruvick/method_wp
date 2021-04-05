@@ -1,7 +1,7 @@
 <?php
 
 define("COMPANY_NAME", "МЕТОД");
-define("MAIL_RESEND", "rudikov-web@ya.ru");
+define("MAIL_RESEND", "noreply@ultrakresla.ru");
 
 //----Подключене carbon fields
 //----Инструкции по подключению полей см. в комментариях themes-fields.php
@@ -118,7 +118,7 @@ add_action( 'wp_ajax_nopriv_sendphone', 'sendphone' );
       );
     
       add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
-       if (wp_mail(carbon_get_theme_option( 'as_email_send' ), 'Отзыв с сайта «МЕТОД»', '<strong>Имя:</strong> '.$_REQUEST["name"]. ' <br/> <strong>Профессия:</strong> '.$_REQUEST["profess"]. ' <br/> <strong>Фото:</strong> '.$_REQUEST["file"]. ' <br/> <strong>Отзыв:</strong> '.$_REQUEST["message"], $headers))
+       if (wp_mail(carbon_get_theme_option( 'as_email_send' ), 'Отзыв с сайта «МЕТОД»', '<strong>Имя:</strong> '.$_REQUEST["name"]. ' <br/> <strong>Профессия:</strong> '.$_REQUEST["profess"]. ' <br/> <strong>Фото:</strong> '.$_REQUEST["img1"]. ' <br/> <strong>Отзыв:</strong> '.$_REQUEST["message"], $headers))
         wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
       else wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>"); 
       
