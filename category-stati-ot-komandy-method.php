@@ -12,7 +12,7 @@
 						<?php
 							while(have_posts()):
 								the_post();
-								get_template_part('template-parts/product-method');  
+								get_template_part('template-parts/product-articles');  
 							endwhile;
 						?>
 					</div>

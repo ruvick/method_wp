@@ -1373,6 +1373,8 @@ body.ie .ibg img {
     font-size: 18px;
     line-height: 144.44444%;
     margin-bottom: 45px;
+    max-width: 550px;
+    width: 100%;
     color: #fff; }
   .header-info__btn {
     width: 250px;
@@ -1499,11 +1501,15 @@ body.ie .ibg img {
   .main-info__item-img *:last-child {
     margin-bottom: 0; }
   .main-info__item-img h1 {
+    max-width: 460px;
+    width: 100%;
     margin-bottom: 20px; }
   .main-info__item-img p {
     font-size: 16px;
     line-height: 150%;
     color: #cecece;
+    max-width: 310px;
+    width: 100%;
     margin-bottom: 30px; }
 
 .main-info__btn {
@@ -1568,6 +1574,8 @@ body.ie .ibg img {
   .main-info__login h3 {
     margin-bottom: 10px; }
   .main-info__login p {
+    max-width: 150px;
+    width: 100%;
     color: #7d7d7d;
     margin-bottom: 18px; }
 
@@ -1586,7 +1594,7 @@ body.ie .ibg img {
   font-weight: 600; }
 
 .reviews-block__item {
-  margin-bottom: 30px; }
+  margin-bottom: 27px; }
 
 .reviews-block__initials {
   -webkit-box-align: center;
@@ -1991,6 +1999,8 @@ body.ie .ibg img {
   background-position: center center;
   background-size: cover; }
   .mentor-info h2 {
+    max-width: 615px;
+    width: 100%;
     font-size: 36px;
     line-height: 150%;
     color: #fff;
@@ -2007,12 +2017,16 @@ body.ie .ibg img {
   padding: 70px 0 88px 0;
   background: #E5E5E5; }
   .method-info h2 {
+    max-width: 635px;
+    width: 100%;
     font-size: 36px;
     line-height: 150%;
     margin-bottom: 35px; }
   .method-info span {
     font-weight: 400; }
   .method-info p {
+    max-width: 732px;
+    width: 100%;
     font-size: 18px;
     line-height: 155.55556%;
     margin-bottom: 60px; }

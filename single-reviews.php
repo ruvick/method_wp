@@ -1,5 +1,10 @@
 <?php
 
+/*
+* Template Name: Шаблон отзывы
+* Template Post Type: post
+*/
+
 get_header(); ?>
 
 <?php get_template_part('template-parts/header-section');?>
@@ -21,7 +26,7 @@ get_header(); ?>
 			</div> 
 
 		</div>
-	</section>
+	</section> 
 
 </main> 
 

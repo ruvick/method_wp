@@ -5,13 +5,13 @@
 		</div>
 		<div class="reviews-block__name">
 			<h4><? the_title();?></h4>
-			<p>Маркетолог</p>
+			<p><?echo carbon_get_post_meta(get_the_ID(),"reviews_special"); ?></p>
 		</div>
 	</div>
 	<div class="reviews-block__text">
 		<p><? the_content();?></p>
 	</div>
 	<div class="reviews-block__date">
-		10 марта 2021 года
+		<?php echo the_time('j F Y'); ?> года
 	</div>
 </a>

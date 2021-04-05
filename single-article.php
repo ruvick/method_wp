@@ -55,13 +55,13 @@ get_header(); ?>
 					// if(empty($sidebarImg)) {
 					// 	$sidebarImg = get_template_directory_uri() . '/img/header-yandex.jpg'; } 
 					?>
-					<div class="content-article__col-img" style="background-image: url(<?php echo $sidebarImg?>);"></div>
+					<a href="<?echo carbon_get_post_meta(get_the_ID(),"sidebar_img_link-1"); ?>" class="content-article__col-img" style="background-image: url(<?php echo $sidebarImg?>);"></a>
 					<?php 
 					$sidebarImgB = wp_get_attachment_image_src( carbon_get_the_post_meta('sidebar_img_b'), 'full')[0];
 					// if(empty($sidebarImgB)) {
 					// 	$sidebarImgB = get_template_directory_uri() . '/img/header-yandex.jpg';} 
 					?>
-					<div class="content-article__col-img" style="background-image: url(<?php echo $sidebarImgB?>);"></div>
+					<a href="<?echo carbon_get_post_meta(get_the_ID(),"sidebar_img_link-2"); ?>" class="content-article__col-img" style="background-image: url(<?php echo $sidebarImgB?>);"></a>
 				</div>
 
 			</div>

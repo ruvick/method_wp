@@ -22,7 +22,7 @@
 					</div>
 
 					<div class="main-info__item-slider"> 
-						<div class="info-sl__slider slider">
+						<div class="info-sl__slider slider"> 
 							<?
 							$pict = carbon_get_theme_option('auto_banner');
 							if($pict) {
@@ -83,7 +83,6 @@
 
 						foreach( $posts as $post ){
 							?>
-
 							<div class="reviews-block__item">
 								<div class="reviews-block__initials d-flex">
 									<div class="reviews-block__img">
@@ -91,17 +90,16 @@
 									</div>
 									<div class="reviews-block__name">
 										<h4><? the_title();?></h4>
-										<p>Маркетолог</p>
+										<p><?echo carbon_get_post_meta(get_the_ID(),"reviews_special"); ?></p>
 									</div>
 								</div>
 								<div class="reviews-block__text">
 									<p>
-										Таким образом консультация с широким 
-										активом играет важную роль 
-										в формировании дальнейших развития. 
-										Значимость этих проблем настолько 
-										очевидна, что укрепление и развитие 
-										структуры играет важную
+										<?php 
+										$maxchar = 190;
+										$text = strip_tags( get_the_excerpt() );
+										echo mb_substr( $text, 0, $maxchar );
+										?>
 									</p>
 								</div>
 							</div>
@@ -109,55 +107,8 @@
 							<?php 
 						} 
 						?>
-
-<!-- 						<div class="reviews-block__item">
-							<div class="reviews-block__initials d-flex">
-								<div class="reviews-block__img">
-									<img src="<?php echo get_template_directory_uri();?>/img/reviews/h-01.jpg" alt="">
-								</div>
-								<div class="reviews-block__name">
-									<h4>Алексей Гаврилов</h4>
-									<p>Маркетолог</p>
-								</div>
-							</div>
-							<div class="reviews-block__text">
-								<p>
-									Таким образом консультация с широким 
-									активом играет важную роль 
-									в формировании дальнейших развития. 
-									Значимость этих проблем настолько 
-									очевидна, что укрепление и развитие 
-									структуры играет важную
-								</p>
-							</div>
-						</div> -->
-
-<!-- 						<div class="reviews-block__item reviews-block__item_bot">
-							<div class="reviews-block__initials d-flex">
-								<div class="reviews-block__img">
-									<img src="<?php echo get_template_directory_uri();?>/img/reviews/h-02.jpg" alt="">
-								</div>
-								<div class="reviews-block__name">
-									<h4>Мария Васильева</h4>
-									<p>Предприниматель</p>
-								</div>
-							</div>
-							<div class="reviews-block__text">
-								<p>
-									Таким образом консультация с широким 
-									активом играет важную роль 
-									в формировании дальнейших развития. 
-									Значимость этих проблем настолько 
-									очевидна, что укрепление и развитие 
-									структуры играет важную
-								</p>
-							</div>
-						</div> -->
-
 						<a href="<?php echo get_category_link(4);?>" class="reviews-block__btn">Читать больше отзывов...</a>
-
 					</div>
-
 				</div>
 
 			</div>
@@ -196,7 +147,7 @@
 								<img src="<?php  $imgTm = get_the_post_thumbnail_url( get_the_ID(), "tominiatyre" ); echo empty($imgTm)?get_bloginfo("template_url")."/img/no-photo.jpg":$imgTm; ?>" alt="<? the_title();?>">
 							</a>
 							<div class="prod-card__text">
-								<a href="#" class="prod-card__cat-info">#Маркетинг</a>
+								<a href="<?echo carbon_get_post_meta(get_the_ID(),"method_card_subheading_link"); ?>" class="prod-card__cat-info"><?echo carbon_get_post_meta(get_the_ID(),"method_card_subheading"); ?></a>
 								<h3><? the_title();?></h3>
 								<div class="prod-card__subtitle"><?php the_excerpt(); ?></div>
 							</div>

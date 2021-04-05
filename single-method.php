@@ -41,9 +41,6 @@ get_header(); ?>
 
 	</div>
 </section>
-
-
-
 </div>  
 
 <main class="page page-yandex">
@@ -136,240 +133,59 @@ get_header(); ?>
 
 		<?php 
 		$mentordBg = wp_get_attachment_image_src( carbon_get_the_post_meta('section_five_bg'), 'full')[0];
-					if(empty($mentordBg)) {
-						$mentordBg = get_template_directory_uri() . '/img/mentor-info-bg.jpg'; } 
-		?>
-		<section id="mentor-info" class="mentor-info" style="background-image: url(<?php echo $mentordBg?>);">
-			<div class="container">
-				<h2><?echo carbon_get_post_meta(get_the_ID(),"section_five_title"); ?></h2>
-				<a href="#" class="mentor-info__btn btn"><?echo carbon_get_post_meta(get_the_ID(),"section_four_button"); ?></a>
-			</div>
-		</section>
+		if(empty($mentordBg)) {
+			$mentordBg = get_template_directory_uri() . '/img/mentor-info-bg.jpg'; } 
+			?>
+			<section id="mentor-info" class="mentor-info" style="background-image: url(<?php echo $mentordBg?>);">
+				<div class="container">
+					<h2><?echo carbon_get_post_meta(get_the_ID(),"section_five_title"); ?></h2>
+					<a href="#" class="mentor-info__btn btn"><?echo carbon_get_post_meta(get_the_ID(),"section_four_button"); ?></a>
+				</div>
+			</section>
 
-		<section id="methods" class="methods methods-yandex">
-			<div class="container">
-				<h2>Еще методы</h2>
+			<section id="methods" class="methods methods-yandex">
+				<div class="container">
+					<h2>Еще методы</h2>
 
-				<div class="methods__row prod-card d-flex">
+					<div class="methods__row prod-card d-flex">
 
-					<?php 
-					$posts = get_posts( array(
-						'numberposts' => 9,
-						'category'    => 2,
-						'orderby'     => 'date',
+						<?php 
+						$posts = get_posts( array(
+							'numberposts' => 9,
+							'category'    => 2,
+							'orderby'     => 'date',
 								// 'orderby'     => '612,616,626',
-						'order'       => 'DESC',
+							'order'       => 'DESC',
 								// 'include'     => '612,608,606',
-						'include'     => array(),
-						'exclude'     => array(),
-						'meta_key'    => '',
-						'meta_value'  =>'',
-						'post_type'   => 'post',
+							'include'     => array(),
+							'exclude'     => array(),
+							'meta_key'    => '',
+							'meta_value'  =>'',
+							'post_type'   => 'post',
 								'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
 							) );
 
-					$result = wp_get_recent_posts( $args );
+						$result = wp_get_recent_posts( $args );
 
-					foreach( $posts as $post ){
+						foreach( $posts as $post ){
+							?>
+							<div class="prod-card__column"> 
+								<div class="prod-card__body d-flex">
+									<a href="<?echo get_the_permalink(get_the_ID());?>" class="prod-card__link">
+										<img src="<?php  $imgTm = get_the_post_thumbnail_url( get_the_ID(), "tominiatyre" ); echo empty($imgTm)?get_bloginfo("template_url")."/img/no-photo.jpg":$imgTm; ?>" alt="<? the_title();?>">
+									</a>
+									<div class="prod-card__text">
+										<a href="<?echo carbon_get_post_meta(get_the_ID(),"method_card_subheading_link"); ?>" class="prod-card__cat-info"><?echo carbon_get_post_meta(get_the_ID(),"method_card_subheading"); ?></a>
+										<h3><? the_title();?></h3>
+										<div class="prod-card__subtitle"><?php the_excerpt(); ?></div>
+									</div>
+									<a href="<?echo get_the_permalink(get_the_ID());?>" class="prod-card__btn btn">Узнать подробнее</a>
+								</div> 
+							</div>
+							<?php 
+						} 
 						?>
-						<div class="prod-card__column"> 
-							<div class="prod-card__body d-flex">
-								<a href="<?echo get_the_permalink(get_the_ID());?>" class="prod-card__link">
-									<img src="<?php  $imgTm = get_the_post_thumbnail_url( get_the_ID(), "tominiatyre" ); echo empty($imgTm)?get_bloginfo("template_url")."/img/no-photo.jpg":$imgTm; ?>" alt="<? the_title();?>">
-								</a>
-								<div class="prod-card__text">
-									<a href="#" class="prod-card__cat-info">#Маркетинг</a>
-									<h3><? the_title();?></h3>
-									<div class="prod-card__subtitle"><?php the_excerpt(); ?></div>
-								</div>
-								<a href="<?echo get_the_permalink(get_the_ID());?>" class="prod-card__btn btn">Узнать подробнее</a>
-							</div> 
 						</div>
-						<?php 
-					} 
-					?>
-
-<!-- 							<div class="prod-card__column">
-								<div class="prod-card__body d-flex">
-									<a href="#" class="prod-card__link">
-										<img src="img/product/pr-01.jpg" alt="">
-									</a>
-									<div class="prod-card__text">
-										<a href="#" class="prod-card__cat-info">#Маркетинг</a>
-										<h3>Яндекс.Директ, РСЯ</h3>
-										<p class="prod-card__subtitle">
-											Задача организации, в особенности же укрепление 
-											и развитие структуры в значительной степени обуславливает создание модели развития. 
-											Повседневная практика показывает 
-										</p>
-									</div>
-									<a href="#" class="prod-card__btn btn">Узнать подробнее</a>
-								</div>
-							</div>
-
-							<div class="prod-card__column">
-								<div class="prod-card__body d-flex">
-									<a href="#" class="prod-card__link">
-										<img src="img/product/pr-02.jpg" alt="">
-									</a>
-									<div class="prod-card__text">
-										<a href="#" class="prod-card__cat-info">#Маркетинг</a>
-										<h3>Яндекс.Директ, Поиск</h3>
-										<p class="prod-card__subtitle">
-											Задача организации, в особенности же укрепление 
-											и развитие структуры в значительной степени обуславливает создание модели развития. 
-											Повседневная практика показывает
-										</p>
-									</div>
-									<a href="#" class="prod-card__btn btn">Узнать подробнее</a>
-								</div>
-							</div>
-
-							<div class="prod-card__column">
-								<div class="prod-card__body d-flex">
-									<a href="#" class="prod-card__link">
-										<img src="img/product/pr-03.jpg" alt="">
-									</a>
-									<div class="prod-card__text">
-										<a href="#" class="prod-card__cat-info">#Маркетинг</a>
-										<h3>Таргетинг ВКонтакте</h3>
-										<p class="prod-card__subtitle">
-											Задача организации, в особенности же укрепление 
-											и развитие структуры в значительной степени обуславливает создание модели развития. 
-											Повседневная практика показывает
-										</p>
-									</div>
-									<a href="#" class="prod-card__btn btn">Узнать подробнее</a>
-								</div>
-							</div>
-
-							<div class="prod-card__column">
-								<div class="prod-card__body d-flex">
-									<a href="#" class="prod-card__link">
-										<img src="img/product/pr-04.jpg" alt="">
-									</a>
-									<div class="prod-card__text">
-										<a href="#" class="prod-card__cat-info">#Маркетинг</a>
-										<h3>Таргетинг Instagram / Facebook</h3>
-										<p class="prod-card__subtitle">
-											Задача организации, в особенности же укрепление 
-											и развитие структуры в значительной степени обуславливает создание модели развития. 
-											Повседневная практика показывает
-										</p>
-									</div>
-									<a href="#" class="prod-card__btn btn">Узнать подробнее</a>
-								</div>
-							</div>
-
-							<div class="prod-card__column">
-								<div class="prod-card__body d-flex">
-									<a href="#" class="prod-card__link">
-										<img src="img/product/pr-05.jpg" alt="">
-									</a>
-									<div class="prod-card__text">
-										<a href="#" class="prod-card__cat-info">#Маркетинг</a>
-										<h3>Лендинг на Tilda</h3>
-										<p class="prod-card__subtitle">
-											Задача организации, в особенности же укрепление 
-											и развитие структуры в значительной степени обуславливает создание модели развития. 
-											Повседневная практика показывает
-										</p>
-									</div>
-									<a href="#" class="prod-card__btn btn">Узнать подробнее</a>
-								</div>
-							</div>
-
-							<div class="prod-card__column">
-								<div class="prod-card__body d-flex">
-									<a href="#" class="prod-card__link">
-										<img src="img/product/pr-06.jpg" alt="">
-									</a>
-									<div class="prod-card__text">
-										<a href="#" class="prod-card__cat-info">#Маркетинг</a>
-										<h3>Квиз</h3>
-										<p class="prod-card__subtitle">
-											Задача организации, в особенности же укрепление 
-											и развитие структуры в значительной степени обуславливает создание модели развития. 
-											Повседневная практика показывает
-										</p>
-									</div>
-									<a href="#" class="prod-card__btn btn">Узнать подробнее</a>
-								</div>
-							</div>
-
-							<div class="prod-card__column">
-								<div class="prod-card__body d-flex">
-									<a href="#" class="prod-card__link">
-										<img src="img/product/pr-07.jpg" alt="">
-									</a>
-									<div class="prod-card__text">
-										<a href="#" class="prod-card__cat-info">#Маркетинг</a>
-										<h3>Google Ads, КМС</h3>
-										<p class="prod-card__subtitle">
-											Задача организации, в особенности же укрепление 
-											и развитие структуры в значительной степени обуславливает создание модели развития. 
-											Повседневная практика показывает
-										</p>
-									</div>
-									<a href="#" class="prod-card__btn btn">Узнать подробнее</a>
-								</div>
-							</div>
-
-							<div class="prod-card__column">
-								<div class="prod-card__body d-flex">
-									<a href="#" class="prod-card__link">
-										<img src="img/product/pr-08.jpg" alt="">
-									</a>
-									<div class="prod-card__text">
-										<a href="#" class="prod-card__cat-info">#Маркетинг</a>
-										<h3>Google Ads, Поиск</h3>
-										<p class="prod-card__subtitle">
-											Задача организации, в особенности же укрепление 
-											и развитие структуры в значительной степени обуславливает создание модели развития. 
-											Повседневная практика показывает
-										</p>
-									</div>
-									<a href="#" class="prod-card__btn btn">Узнать подробнее</a>
-								</div>
-							</div>
-
-							<div class="prod-card__column">
-								<div class="prod-card__body d-flex">
-									<a href="#" class="prod-card__link">
-										<img src="img/product/pr-09.jpg" alt="">
-									</a>
-									<div class="prod-card__text">
-										<a href="#" class="prod-card__cat-info">#Маркетинг</a>
-										<h3>Прототип Landing page</h3>
-										<p class="prod-card__subtitle">
-											Задача организации, в особенности же укрепление 
-											и развитие структуры в значительной степени обуславливает создание модели развития. 
-											Повседневная практика показывает
-										</p>
-									</div>
-									<a href="#" class="prod-card__btn btn">Узнать подробнее</a>
-								</div>
-							</div> -->
-
-						</div>
-
-					</div>
-				</section>
-
-				<section id="about" class="about">
-					<div class="container">
-
-					</div>
-				</section>
-
-				<section id="about" class="about">
-					<div class="container">
-
-					</div>
-				</section>
-
-				<section id="about" class="about">
-					<div class="container">
 
 					</div>
 				</section>

@@ -5,7 +5,7 @@
 			<img src="<?php  $imgTm = get_the_post_thumbnail_url( get_the_ID(), "tominiatyre" ); echo empty($imgTm)?get_bloginfo("template_url")."/img/no-photo.jpg":$imgTm; ?>" alt="<? the_title();?>">
 		</a>
 		<div class="prod-card__text">
-			<a href="<?echo carbon_get_post_meta(get_the_ID(),"method_card_subheading_link"); ?>" class="prod-card__cat-info"><?echo carbon_get_post_meta(get_the_ID(),"method_card_subheading"); ?></a>
+			<a href="<?echo carbon_get_post_meta(get_the_ID(),"author_card_subheading_link"); ?>" class="prod-card__cat-info"><?echo carbon_get_post_meta(get_the_ID(),"author_card_subheading"); ?></a>
 			<h3><? the_title();?></h3>
 			<div class="prod-card__subtitle">
 					<?php 
@@ -15,6 +15,6 @@
 					?>
 			</div>
 		</div>
-		<a href="<?echo get_the_permalink(get_the_ID());?>" class="prod-card__btn btn">Узнать подробнее</a> 
+		<a href="<?echo get_the_permalink(get_the_ID());?>" class="prod-card__btn btn">Читать статью</a> 
 	</div> 
 </div>  
