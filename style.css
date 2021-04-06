@@ -25,7 +25,7 @@ Version: 1.0.1
 * {
   padding: 0px; 
   margin: 0px;
-  border: 0px; } 
+  border: 0px; }  
 
 *,
 *:before,
@@ -794,8 +794,10 @@ body.ie .ibg img {
 
 .slider__item img {
   width: 100%;
-  -o-object-fit: cover;
-  object-fit: cover; }
+/*  -o-object-fit: cover;
+  object-fit: cover;*/
+  height: 100%;
+ }
 
 /* Слайдер */
 .info-sl__slider {
@@ -1295,7 +1297,7 @@ body.ie .ibg img {
   position: absolute;
   width: 100%;
   height: 2px;
-  background-color: #fe9d2b; }
+  background-color: #FED529; }
 
 .icon-menu span:first-child {
   top: 0px; }
@@ -1331,7 +1333,7 @@ body.ie .ibg img {
   display: none;
   width: 30px;
   height: 30px;
-  background: #fe9d2b;
+  background: #FED529;
   border-radius: 50%;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -1532,7 +1534,7 @@ body.ie .ibg img {
 
 .main-info__vid {
   display: block;
-  background-image: url("img/video.jpg");
+  /*background-image: url("img/video.jpg");*/
   background-repeat: no-repeat;
   background-size: cover;
   -webkit-box-flex: 0;
@@ -2614,7 +2616,45 @@ body.ie .ibg img {
   .main-info__vid {
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; } }
+    align-items: center; } 
+  .main-info__vid {
+    background-image: url("img/video-mob.jpg") !important;
+    background-position: center;
+  }
+  .main-info__vid h3 {
+    max-width: 280px;
+    font-size: 33px;
+  }
+  .main-info__vid p {
+    max-width: 280px;
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+  }
+    .main-info__vid p br {
+    display: none;
+  }
+  .main-info__login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 27px 20px 25px;
+  }
+  .main-info__login h3 {
+    font-size: 30px;
+  }
+  .main-info__login p {
+    max-width: 250px;
+    width: 100%;
+    color: #7d7d7d;
+    margin-bottom: 18px;
+    font-size: 20px;
+    line-height: 1;
+  }
+  .box-modal {
+    padding: 35px 15px 20px 15px;
+  }
+}
 
 @media (max-width: 480px) {
   .content-article__aside {

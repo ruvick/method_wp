@@ -5,7 +5,7 @@ define("MAIL_RESEND", "noreply@ultrakresla.ru");
 
 //----Подключене carbon fields
 //----Инструкции по подключению полей см. в комментариях themes-fields.php
-include "carbon-fields/carbon-fields-plugin.php";
+include "carbon-fields/carbon-fields-plugin.php"; 
 
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
@@ -114,8 +114,15 @@ add_action( 'wp_ajax_nopriv_sendphone', 'sendphone' );
       
       $headers = array(
         'From: Сайт '.COMPANY_NAME.' <'.MAIL_RESEND.'>', 
-        'content-type: text/html',
+        'content-type: form/multipart',
+        // 'content-type: text/html', 
       );
+
+      if (!empty($_REQUEST["img1"])){
+        $url_img1 = get_bloginfo("template_url").'/revimg/'.basename($_REQUEST["img1"]);
+        $img_id1 = media_sideload_image( $url_img1, $post_id, $_REQUEST["name"]."-rev-1", "id" );
+        add_post_meta( $post_id, "_img_1", $img_id1, true );
+      }
     
       add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
        if (wp_mail(carbon_get_theme_option( 'as_email_send' ), 'Отзыв с сайта «МЕТОД»', '<strong>Имя:</strong> '.$_REQUEST["name"]. ' <br/> <strong>Профессия:</strong> '.$_REQUEST["profess"]. ' <br/> <strong>Фото:</strong> '.$_REQUEST["img1"]. ' <br/> <strong>Отзыв:</strong> '.$_REQUEST["message"], $headers))

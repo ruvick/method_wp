@@ -27,17 +27,16 @@
 							Ваш отзыв успешно отправлен
 						</div>
 						<div class="headen_form_blk">
-						<input type="text" name="name" placeholder="Ваше имя" id="form-name" class="reviews__form-input input">
-						<input type="text" name="profess" placeholder="Какая у вас профессия?" id="form-profess" class="reviews__form-input input">
-						<div class="reviews__form-input-wrapper reviews__form-input">
-							<input type="file" name="file" multiple="multiple" accept=".txt,image/*" id="input__file" class="reviews__form-input-file file_name input__file"> 
-							<label for="input__file" class="input__file-button">
-								<span class="input__file-button-text">Загрузите фото (Не обязательно)</span>
-							</label>
-						</div>
-						<!-- 								<input type="file" placeholder="Загрузите фото (Не обязательно)" class="reviews__form-input reviews__form-input-file input"> -->
-						<textarea name="message" id="form-message" placeholder="Напишите сюда ваш отзыв" id="" cols="30" rows="10"></textarea>
-						<button type="submit" class="reviews__form-btn newButton btn">Оставить отзыв</button>
+							<input type="text" name="name" placeholder="Ваше имя" id="form-name" class="reviews__form-input input">
+							<input type="text" name="profess" placeholder="Какая у вас профессия?" id="form-profess" class="reviews__form-input input">
+							<div class="reviews__form-input-wrapper reviews__form-input">
+								<input type="file" name="file" multiple="multiple" accept=".txt,image/*" id="input__file" class="reviews__form-input-file file_name input__file"> 
+								<label for="input__file" class="input__file-button">
+									<span class="input__file-button-text">Загрузите фото (Не обязательно)</span>
+								</label>
+							</div>
+							<textarea name="message" id="form-message" placeholder="Напишите сюда ваш отзыв" id="" cols="30" rows="10"></textarea>
+							<button type="submit" class="reviews__form-btn upload_files button newButton btn">Оставить отзыв</button>
 						</div>
 					</form>
 				</div>
