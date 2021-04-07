@@ -21,7 +21,7 @@
 
 				<div class="reviews__form-block d-flex">
 					<h3>Воспользовались нашим маркетплейсом и хотите оставить свой отзыв?</h3>
-					<p>Заполните форму ниже и мы разместим ваш отзыв на сайте в самое ближайшее время</p>
+					<p>Заполните форму ниже и мы разместим ваш отзыв на сайте в самое ближайшее время11111111</p>
 					<form action="#" class="reviews__form">
 						<div class = "SendetMsg" style = "display:none"> 
 							Ваш отзыв успешно отправлен
@@ -32,14 +32,17 @@
 							<div class="reviews__form-input-wrapper reviews__form-input">
 								<input type="file" name="file" multiple="multiple" accept=".txt,image/*" id="input__file" class="reviews__form-input-file file_name input__file"> 
 								<label for="input__file" class="input__file-button">
-									<span class="input__file-button-text">Загрузите фото (Не обязательно)</span>
+									<span id="file-path" class="input__file-button-text file-path">Загрузите фото (Не обязательно)</span>
 								</label>
 							</div>
+							
+							<input name = "filleserv" type="hidden" id="file-path-serv" value = "">
+							
 							<textarea name="message" id="form-message" placeholder="Напишите сюда ваш отзыв" id="" cols="30" rows="10"></textarea>
-							<button type="submit" class="reviews__form-btn upload_files button newButton btn">Оставить отзыв</button>
+							<button type="submit" class="reviews__form-btn upload_files button newButton btn">Оставить отзыв</button> 
 						</div>
 					</form>
-				</div>
+				</div> 
 
 			</div>
 

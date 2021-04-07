@@ -13,7 +13,7 @@
 						<div class="header__row-left d-flex">
 
 							<?php 
-							$logoh = wp_get_attachment_image_src( carbon_get_theme_option('as_logo'), 'full')[0];
+							$logoh = wp_get_attachment_image_src( carbon_get_theme_option('as_logo_light'), 'full')[0]; 
 							if(empty($logoh)) {
 								$logoh = get_template_directory_uri() . '/img/icons/logo-yandex-h.png';
 							} ?>

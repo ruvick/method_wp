@@ -2091,6 +2091,11 @@ body.ie .ibg img {
 }
 
 
+#workshop .reviews__form-input,
+#wsubscribe .reviews__form-input,
+#method .reviews__form-input {
+  border: 1px solid #FED529;
+}
 
 
 @media (max-width: 1120px) {

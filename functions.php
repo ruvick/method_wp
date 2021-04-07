@@ -1,7 +1,7 @@
 <?php
 
 define("COMPANY_NAME", "МЕТОД");
-define("MAIL_RESEND", "noreply@ultrakresla.ru");
+define("MAIL_RESEND", "noreply@method.market");
 
 //----Подключене carbon fields
 //----Инструкции по подключению полей см. в комментариях themes-fields.php
@@ -17,7 +17,7 @@ function crb_attach_theme_options() {
 
 add_action( 'after_setup_theme', 'crb_load' );
 function crb_load() {
-	require_once( 'carbon-fields/vendor/autoload.php' );
+	require_once( 'carbon-fields/vendor/autoload.php' ); 
 	\Carbon_Fields\Carbon_Fields::boot(); 
 } 
 
@@ -118,14 +118,20 @@ add_action( 'wp_ajax_nopriv_sendphone', 'sendphone' );
         // 'content-type: text/html', 
       );
 
-      if (!empty($_REQUEST["img1"])){
-        $url_img1 = get_bloginfo("template_url").'/revimg/'.basename($_REQUEST["img1"]);
-        $img_id1 = media_sideload_image( $url_img1, $post_id, $_REQUEST["name"]."-rev-1", "id" );
-        add_post_meta( $post_id, "_img_1", $img_id1, true );
+      if (!empty($_REQUEST["file"])){
+        $url_img1 = get_bloginfo("template_url").'/download/'.basename($_REQUEST["file"]);
+        //$img_id1 = media_sideload_image( $url_img1, 0, $_REQUEST["name"]."-rev-1", "id" );
+        //add_post_meta( $post_id, "_img_1", $img_id1, true );
       }
+	  
+	  $photo[] = $_REQUEST['file'];
     
       add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
-       if (wp_mail(carbon_get_theme_option( 'as_email_send' ), 'Отзыв с сайта «МЕТОД»', '<strong>Имя:</strong> '.$_REQUEST["name"]. ' <br/> <strong>Профессия:</strong> '.$_REQUEST["profess"]. ' <br/> <strong>Фото:</strong> '.$_REQUEST["img1"]. ' <br/> <strong>Отзыв:</strong> '.$_REQUEST["message"], $headers))
+       if (wp_mail(
+		carbon_get_theme_option( 'as_email_send' ), 
+		'Отзыв с сайта «МЕТОД»', '<strong>Имя:</strong> '.$_REQUEST["name"]. ' <br/> <strong>Профессия:</strong> '.$_REQUEST["profess"]. ' <br/> <strong>Фото:</strong>  <br/> <img width = "50%" src = "'.$url_img1.'"/ > <br/> <strong>Отзыв:</strong> '.$_REQUEST["message"], 
+		$headers,  
+		$photo ))
         wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
       else wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>"); 
       
@@ -185,5 +191,58 @@ add_action( 'wp_ajax_nopriv_sendwsubscribe', 'sendwsubscribe' );
       wp_die( 'НО-НО-НО!', '', 403 );
     }
   }
+
+
+add_action( 'wp_ajax_sendmethod', 'sendmethod' );
+add_action( 'wp_ajax_nopriv_sendmethod', 'sendmethod' );
+
+  function sendmethod() {
+    if ( empty( $_REQUEST['nonce'] ) ) {
+      wp_die( '0' );
+    }
+    
+    if ( check_ajax_referer( 'NEHERTUTLAZIT', 'nonce', false ) ) {
+      
+      $headers = array(
+        'From: Сайт '.COMPANY_NAME.' <'.MAIL_RESEND.'>', 
+        'content-type: text/html',
+      );
+    
+      add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
+       if (wp_mail(carbon_get_theme_option( 'as_email_send' ), 'Заявка с окна: «Пройти метод»', '<strong>Имя:</strong> '.$_REQUEST["nameM"]. ' <br/> <strong>Телефон:</strong> '.$_REQUEST["telM"]. ' <br/> <strong>Email:</strong> '.$_REQUEST["emailM"]. ' <br/> <strong>Заявка:</strong> '.$_REQUEST["titleM"], $headers))
+        wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
+      else wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>"); 
+      
+    } else {
+      wp_die( 'НО-НО-НО!', '', 403 );
+    }
+  }
+
+
+add_action( 'wp_ajax_main_load_file', 'main_load_file' );
+add_action( 'wp_ajax_nopriv_main_load_file', 'main_load_file' );
+
+function main_load_file() {
+    
+    if ( empty( $_REQUEST['nonce'] ) ) {
+      wp_die( '0' );
+    }
+    
+    if ( check_ajax_referer( 'NEHERTUTLAZIT', 'nonce', false ) ) {
+
+       $movrez = move_uploaded_file($_FILES['file']['tmp_name'], get_template_directory().'/download/'.$_FILES['file']['name']);
+
+       if ($movrez)
+       {
+         wp_die(get_template_directory().'/download/'.$_FILES['file']['name']);
+       }
+       else {
+         wp_die( 'При загрузке файла произошла ошибка', '', 403 );
+       }
+    } else {
+      wp_die( 'НО-НО-НО!', '', 403 );
+    }
+}
+  
 
 ?>

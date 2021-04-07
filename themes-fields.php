@@ -13,7 +13,9 @@ use Carbon_Fields\Field;
 
 Container::make( 'theme_options', __( 'Настройки темы', 'crb' ) )
     ->add_tab('Главная', array(
-      Field::make( 'image', 'as_logo', 'Логотип в шапке') 
+      Field::make( 'image', 'as_logo', 'Логотип темный') 
+        ->set_width(30),
+      Field::make( 'image', 'as_logo_light', 'Логотип светлый') 
         ->set_width(30),
       Field::make( 'image', 'as_logo_white', 'Логотип в подвале')
         ->set_width(30),

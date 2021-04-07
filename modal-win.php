@@ -13,7 +13,7 @@
 </div>  
 
 
-<!-- Пройти бесплатный практикум -->
+<!-- Пройти бесплатный практикум --> 
 <div style="display: none;">
 	<div class="box-modal" id="workshop">
 		<div class="box-modal_close arcticmodal-close"><?_e("закрыть","rubex");?></div>
@@ -47,5 +47,25 @@
 				<button type="submit" class="reviews__form-btn wsubscribe btn">Отправить</button>
 			</div>
 		</form>
+	</div>
+</div> 
+
+
+<!-- Пройти бесплатный практикум --> 
+<div style="display: none;">
+	<div class="box-modal" id="method">
+		<div class="box-modal_close arcticmodal-close"><?_e("закрыть","rubex");?></div>
+		<h3 id="method-title">Пройти метод: <?php the_title();?></h3>
+		<form action="#" class="reviews__form">
+			<div class = "SendetMsg" style = "display:none"> 
+				Ваш сообщение успешно отправлено  
+			</div>
+			<div class="headen_form_blk">
+				<input type="text" name="name" placeholder="Ваше имя" id="form-nameM" class="reviews__form-input input">
+				<input type="email" name="email" placeholder="*Email" id="form-emailM" class="reviews__form-input input">
+				<input type="tel" name="tel" placeholder="Телефон" id="form-telM" class="reviews__form-input input">
+				<button type="submit" class="reviews__form-btn method-btn btn">Отправить</button>
+			</div>
+		</form> 
 	</div>
 </div> 

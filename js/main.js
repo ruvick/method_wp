@@ -13,7 +13,7 @@ $(document).ready(function() {
 		return is_ie; 
 	}
 	if(isIE()){
-		$('body').addClass('ie');
+		$('body').addClass('ie'); 
 	}
 	if(isMobile.any()){
 		$('body').addClass('touch');   
@@ -82,19 +82,19 @@ if (mobsearch) {
 	});
 }
 
-// Открытие ПК меню при наведении до 1024px
-if (document.body.clientWidth>1024){
-	function hideMenu() {
-		$('.mob-menu').slideUp(600);
-	}
-	function showMenu() {
-		$('.mob-menu').slideDown(600);
-	}
-	$(document).ready(function() {
-		$(".menu__catalogy").on("mouseover", showMenu);
-		$(".header__menu").on("mouseleave", hideMenu);
-	});
-}
+
+// Подключили fancybox для вывода видео
+$('.main-info__vid, .menu-item-12 a').fancybox({
+        openEffect  : 'none',
+        closeEffect : 'none',
+        helpers : {
+            media : {}
+        }
+    });
+
+// Добавляем атрибут к пункту меню
+$('#menu-item-12 a').attr( 'data-rel', 'media' );
+
 
 // Slider на главной
 $('.info-sl__slider').slick({
@@ -108,44 +108,6 @@ $('.info-sl__slider').slick({
 	adaptiveHeight: true
 });
 
-
-// Slider вертикальный
-$('.sidebar-slider').slick({
-	arrows: true,
-	dots: false,
-	infinite: true,
-	speed: 1000,
-	slidesToShow: 1,
-	autoplay: true,
-	// autoplaySpeed: 1800,
-	adaptiveHeight: true,
-	vertical: true
-});
-
-
-// Slider Товара
-$('.select-prod-slider').slick({
-	arrows: false,
-	dots: false,
-	infinite: true,
-	speed: 1000,
-	slidesToShow: 4,
-	slidesToScroll: 1,
-	centerMode: true,
-	focusOnSelect: true,
-	autoplaySpeed: 1800,
-	asNavFor: ".select-slider-big",
-	adaptiveHeight: true
-});
-$('.select-slider-big').slick({
-	arrows: false,
-	dots: false,
-	fade: true,
-	slidesToShow: 1,
-	slidesToScroll: 1,
-	draggable: false,
-	asNavFor: ".select-prod-slider"
-});
 
 
 // input file
@@ -167,23 +129,6 @@ $('.select-slider-big').slick({
     // });
 
 
-// Выбо колличества
-$('.minus').click(function () {
-	var $input = $(this).parent().find('input');
-	var count = parseInt($input.val()) - 1;
-	count = count < 1 ? 1 : count;
-	$input.val(count);
-	$input.change();
-	return false;
-});
-$('.plus').click(function () {
-	var $input = $(this).parent().find('input');
-	$input.val(parseInt($input.val()) + 1);
-	$input.change();
-	return false;
-});
-
-
 // Маска телефона
 var inputmask_phone = {"mask": "+9(999)999-99-99"};
 jQuery("input[type=tel]").inputmask(inputmask_phone);  
@@ -199,73 +144,88 @@ $(".login-btn").on('click', function(e) {
 	jQuery("#wsubscribe").arcticmodal();
 });  
 
+$(".header-info__btn, .mentor-info__btn").on('click', function(e) {
+	e.preventDefault();
+	jQuery("#method").arcticmodal();
+});  
 
-// var files; // переменная. будет содержать данные файлов
-
-// // заполняем переменную данными, при изменении значения поля file 
-// $('input[type=file]').on('change', function(){
-// 	files = this.files;
-// });
-// 	//----- Загрузка файла на сервер
-// $('.upload_files').on( 'click', function( event ){
-// console.log(files);
-// 	event.preventDefault();  // остановка дефолтного события для текущего элемента - клик для <a> тега
-// 	// ничего не делаем если files пустой
-// 	if( typeof files == 'undefined' ) return;
-
-// 	// создадим объект данных формы
-// 	var data = new FormData();
-
-// 	// заполняем объект данных файлами в подходящем для отправки формате
-// 	$.each( files, function( key, value ){
-// 		data.append( key, value );
-// 	});
-
-// 	// добавим переменную для идентификации запроса
-// 	data.append( 'my_file_upload', 1 );
-
-// 	// AJAX запрос
-// 	$.ajax({
-// 		url         : './submit.php',
-// 		type        : 'POST', // важно!
-// 		data        : data,
-// 		cache       : false,
-// 		dataType    : 'json',
-// 		// отключаем обработку передаваемых данных, пусть передаются как есть
-// 		processData : false,
-// 		// отключаем установку заголовка типа запроса. Так jQuery скажет серверу что это строковой запрос
-// 		contentType : false, 
-// 		// функция успешного ответа сервера
-// 		success     : function( respond, status, jqXHR ){
-
-// 			// ОК - файлы загружены
-// 			if( typeof respond.error === 'undefined' ){
-// 				// выведем пути загруженных файлов в блок '.ajax-reply'
-// 				var files_path = respond.files;
-// 				var html = '';
-// 				$.each( files_path, function( key, val ){
-// 					 html += val +'<br>';
-// 				} )
-
-// 				$('.ajax-reply').html( html );
-// 			}
-// 			// ошибка
-// 			else {
-// 				console.log('ОШИБКА: ' + respond.data );
-// 			}
-// 		},
-// 		// функция ошибки ответа сервера
-// 		error: function( jqXHR, status, errorThrown ){
-// 			console.log( 'ОШИБКА AJAX запроса: ' + status, jqXHR );
-// 		}
-
-// 	});
-
-// });
+// Загрузчик файла
+// jQuery('input[type=file]').change(function(){
+//       var file_data = jQuery(this).prop('files')[0];
+//       var form_data = new FormData();
+//       var file_span = $(this).parent()('#file-path');
+//       form_data.append('file', file_data);
+//       form_data.append('action', "main_load_file");
+//       form_data.append('nonce', allAjax.nonce);
 
 
+//       var  jqXHR = jQuery.ajax({      
+//           url: allAjax.ajaxurl,
+//           dataType: 'text',
+//           cache: false,
+//           contentType: false,
+//           processData: false,
+//           data: form_data, 
+//           type: 'post'    
+//       });
+
+//       jqXHR.done(function (responce) {
+//           file_span.val(responce);
+//           elems = responce.split('|');
+//           // spiner.hide();
+//           // fnel.html(elems[0]);
+//           // idel.html(elems[1]);
+//       });
+              
+//       jqXHR.fail(function (responce) {
+//           // spiner.hide();
+//           if (responce.responseText == "0")
+//               file_span.html("<span style = 'color:red;'>Большой файл!</span>");
+//           else
+//               file_span.html(responce.responseText);
+//       });
+//   });
 
 
+// jQuery("#vac-modal .uniSendBtn").click(function(e){ 
+//           e.preventDefault();
+//           var vakansy = $(this).siblings('input[name=vakansy]').val();
+//           var tel = $(this).siblings('input[name=tel]').val();
+//           var comment = $(this).siblings('textarea[name=comment]').val();
+//           var file_path = $(this).siblings('.file-path').val();
+//           var form = $(this).parent().serialize();
+//           if ((tel == "")||(tel.indexOf("_")>0)) {
+//             $(this).siblings('input[name=tel]').css("background-color","#ff91a4")
+//           } else {
+//             var  jqXHR = jQuery.post(
+//               allAjax.ajaxurl,
+//               {
+//                 action: 'resume_send', 
+//           nonce: allAjax.nonce,
+//                 tel: tel,
+//                 vakansy: vakansy,
+//                 comment: comment,
+//                 file: file_path
+//               }
+//             );
+            
+//             jqXHR.done(function (responce) {
+//               console.log(responce);
+//           jQuery('#vac-modal').arcticmodal('close');
+//               jQuery('#messgeModal #lineIcon .goodRez').show();
+//           jQuery('#messgeModal #lineMsg').html("Ваша заявка принята.");
+//           $(".uniBigFormSendMail .formLoad").hide();
+//           jQuery('#messgeModal').arcticmodal();
+//             });
+            
+//             jqXHR.fail(function (responce) {
+//           jQuery('#messgeModal #lineIcon .bedRez').show();
+//           jQuery('#messgeModal #lineMsg').html("Произошла ошибка, попробуйте позднее.");
+//           $(".uniBigFormSendMail .formLoad").hide();
+//           jQuery('#messgeModal').arcticmodal();
+//             });
+//           }
+//     });
 
 
 //Валидация телефона + Отправщик
@@ -275,8 +235,11 @@ $('.newButton').click(function(e){
 	var name = $("#form-name").val();
 	var profess = $("#form-profess").val(); 
 	var files = $("#input__file").val(); 
+	var file_path = $("#file-path-serv").val(); 
+	console.log(file_path);
+  // var file_path = $(this).siblings('.file-path').val();
 	var message = $("#form-message").val(); 
-
+console.log(file_path);
 
 	if (jQuery("#form-name").val() == "") {
 		jQuery("#form-name").css("border","1px solid red");
@@ -301,7 +264,9 @@ $('.newButton').click(function(e){
 				nonce: allAjax.nonce,
 				name: name,
 				profess: profess,
-				img1:files,
+				// img1:files,
+				file: file_path,
+				picture: jQuery("#file-path").html(),
 				message: message,
 			}   
 			);
@@ -405,277 +370,93 @@ $('.wsubscribe').click(function(e){
 });
 
 
-$('.main-info__vid').fancybox({
-        openEffect  : 'none',
-        closeEffect : 'none',
-        helpers : {
-            media : {}
-        }
-    });
+$('.method-btn').click(function(e){  
 
-//ZOOM
-if ($('.gallery').length > 0) {
-	baguetteBox.run('.gallery', {
-		// Custom options
-	});
-}
-/*
-CLOUD-ZOOM
-<a rel="position:'right',adjustX:25,adjustY:0,Width: 432" href="img/product/zoom.jpg" class="cloud-zoom product-main-mainimage__item">
-	<img class="cloudzoom-gallery" src="img/product/zoom.jpg" alt="" />
-</a>
-*/
+	e.preventDefault();
+	var nameM = $("#form-nameM").val(); 
+	var emailM = $("#form-emailM").val(); 
+	var telM = $("#form-telM").val(); 
+	var titleM = $("#method-title").html();
 
-
-//POPUP
-$('.pl').click(function (event) {
-	var pl = $(this).attr('href').replace('#', '');
-	var v = $(this).data('vid');
-	popupOpen(pl, v);
-	return false;
-});
-function popupOpen(pl, v) {
-	$('.popup').removeClass('active').hide();
-	if (!$('.menu__body').hasClass('active')) {
-		//$('body').data('scroll',$(window).scrollTop());
-	}
-	if (!isMobile.any()) {
-		$('body').css({ paddingRight: $(window).outerWidth() - $('.wrapper').outerWidth() }).addClass('lock');
-		$('.pdb').css({ paddingRight: $(window).outerWidth() - $('.wrapper').outerWidth() });
-	} else {
-		setTimeout(function () {
-			$('body').addClass('lock');
-		}, 300);
-	}
-	history.pushState('', '', '#' + pl);
-	if (v != '' && v != null) {
-		$('.popup-' + pl + ' .popup-video__value').html('<iframe src="https://www.youtube.com/embed/kLte7hJOFZE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
-	}
-	$('.popup-' + pl).fadeIn(300).delay(300).addClass('active');
-
-	if ($('.popup-' + pl).find('.slick-slider').length > 0) {
-		$('.popup-' + pl).find('.slick-slider').slick('setPosition');
-	}
-}
-function openPopupById(popup_id) {
-	$('#' + popup_id).fadeIn(300).delay(300).addClass('active');
-}
-function popupClose() {
-	$('.popup').removeClass('active').fadeOut(300);
-	if (!$('.menu__body').hasClass('active')) {
-		if (!isMobile.any()) {
-			setTimeout(function () {
-				$('body').css({ paddingRight: 0 });
-				$('.pdb').css({ paddingRight: 0 });
-			}, 200);
-			setTimeout(function () {
-				$('body').removeClass('lock');
-				//$('body,html').scrollTop(parseInt($('body').data('scroll')));
-			}, 200);
-		} else {
-			$('body').removeClass('lock');
-			//$('body,html').scrollTop(parseInt($('body').data('scroll')));
-		}
-	}
-	$('.popup-video__value').html('');
-
-	history.pushState('', '', window.location.href.split('#')[0]);
-}
-$('.popup-close,.popup__close').click(function (event) {
-	popupClose();
-	return false;
-});
-$('.popup').click(function (e) {
-	if (!$(e.target).is(".popup>.popup-table>.cell *") || $(e.target).is(".popup-close") || $(e.target).is(".popup__close")) {
-		popupClose();
-		return false;
-	}
-});
-$(document).on('keydown', function (e) {
-	if (e.which == 27) {
-		popupClose();
-	}
-});
-
-$('.goto').click(function () {
-	var el = $(this).attr('href').replace('#', '');
-	var offset = 0;
-	$('body,html').animate({ scrollTop: $('.' + el).offset().top + offset }, 500, function () { });
-
-	if ($('.menu__body').hasClass('active')) {
-		$('.menu__body,.icon-menu').removeClass('active');
-		$('body').removeClass('lock');
-	}
-	return false;
-});
-
-
-function ibg() {
-	if (isIE()) {
-		let ibg = document.querySelectorAll(".ibg");
-		for (var i = 0; i < ibg.length; i++) {
-			if (ibg[i].querySelector('img') && ibg[i].querySelector('img').getAttribute('src') != null) {
-				ibg[i].style.backgroundImage = 'url(' + ibg[i].querySelector('img').getAttribute('src') + ')';
-			}
-		}
-	}
-}
-ibg();
-
-
-//Клик вне области
-$(document).on('click touchstart', function (e) {
-	if (!$(e.target).is(".select *")) {
-		$('.select').removeClass('active');
-	};
-});
-
-//UP
-$(window).scroll(function () {
-	var w = $(window).width();
-	if ($(window).scrollTop() > 50) {
-		$('#up').fadeIn(300);
-	} else {
-		$('#up').fadeOut(300);
-	}
-});
-$('#up').click(function (event) {
-	$('body,html').animate({ scrollTop: 0 }, 300);
-});
-
-$('body').on('click', '.tab__navitem', function (event) {
-	var eq = $(this).index();
-	if ($(this).hasClass('parent')) {
-		var eq = $(this).parent().index();
-	}
-	if (!$(this).hasClass('active')) {
-		$(this).closest('.tabs').find('.tab__navitem').removeClass('active');
-		$(this).addClass('active');
-		$(this).closest('.tabs').find('.tab__item').removeClass('active').eq(eq).addClass('active');
-		if ($(this).closest('.tabs').find('.slick-slider').length > 0) {
-			$(this).closest('.tabs').find('.slick-slider').slick('setPosition');
-		}
-	}
-});
-$.each($('.spoller.active'), function (index, val) {
-	$(this).next().show();
-});
-$('body').on('click', '.spoller', function (event) {
-	if ($(this).hasClass('mob') && !isMobile.any()) {
-		return false;
+	if (jQuery("#form-nameM").val() == "") {
+		jQuery("#form-nameM").css("border","1px solid red");
+		return;
 	}
 
-	if ($(this).parents('.one').length > 0) {
-		$(this).parents('.one').find('.spoller').not($(this)).removeClass('active').next().slideUp(300);
-		$(this).parents('.one').find('.spoller').not($(this)).parent().removeClass('active');
+	if (jQuery("#form-emailM").val() == ""){
+		jQuery("#form-emailM").css("border","1px solid red");
+		return;
 	}
 
-	if ($(this).hasClass('closeall') && !$(this).hasClass('active')) {
-		$.each($(this).closest('.spollers').find('.spoller'), function (index, val) {
-			$(this).removeClass('active');
-			$(this).next().slideUp(300);
-		});
+	if (jQuery("#form-telM").val() == ""){
+		jQuery("#form-telM").css("border","1px solid red");
+		return;
 	}
-	$(this).toggleClass('active').next().slideToggle(300, function (index, val) {
-		if ($(this).parent().find('.slick-slider').length > 0) {
-			$(this).parent().find('.slick-slider').slick('setPosition');
-		}
-	});
-	return false;
+
+	else {
+		var  jqXHR = jQuery.post(
+			allAjax.ajaxurl,
+			{
+				action: 'sendmethod',        
+				nonce: allAjax.nonce,
+				nameM: nameM,
+				emailM: emailM,
+				telM: telM,
+				titleM: titleM,
+			}   
+			);
+
+				jqXHR.done(function (responce) {
+					jQuery("#method .headen_form_blk").hide();
+					jQuery('#method .SendetMsg').show();
+				});
+
+            jqXHR.fail(function (responce) {
+            	alert("Произошла ошибка. Попробуйте позднее."); 
+        }); 
+
+     }
 });
 
 
 
-function scrolloptions() {
-	var scs = 100;
-	var mss = 50;
-	var bns = false;
-	if (isMobile.any()) {
-		scs = 10;
-		mss = 1;
-		bns = true;
-	}
-	var opt = {
-		cursorcolor: "#fff",
-		cursorwidth: "4px",
-		background: "",
-		autohidemode: true,
-		cursoropacitymax: 0.4,
-		bouncescroll: bns,
-		cursorborderradius: "0px",
-		scrollspeed: scs,
-		mousescrollstep: mss,
-		directionlockdeadzone: 0,
-		cursorborder: "0px solid #fff",
-	};
-	return opt;
-}
-function scroll() {
-	$('.scroll-body').niceScroll('.scroll-list', scrolloptions());
-}
-if (navigator.appVersion.indexOf("Mac") != -1) {
-} else {
-	if ($('.scroll-body').length > 0) { scroll(); }
-}
+jQuery('input[type=file]').change(function(){
+      var file_data = jQuery(this).prop('files')[0];
+      var form_data = new FormData();
+      var file_span = $(this).parent().siblings('.file-path');
+      form_data.append('file', file_data);
+      form_data.append('action', "main_load_file");
+      form_data.append('nonce', allAjax.nonce);
 
 
-// function scrollwhouse(){
-// 		var scs=100;
-// 		var mss=50;
-// 		var bns=false;
-// 	if(isMobile.any()){
-// 		scs=10;
-// 		mss=1;
-// 		bns=true;
-// 	}
-// 	var opt={
-// 		cursorcolor:"#afafaf",
-// 		cursorwidth: "5px",
-// 		background: "",
-// 		autohidemode:false,
-// 		railalign: 'left',
-// 		cursoropacitymax: 1,
-// 		bouncescroll:bns,
-// 		cursorborderradius: "0px",
-// 		scrollspeed:scs,
-// 		mousescrollstep:mss,
-// 		directionlockdeadzone:0,
-// 		cursorborder: "0px solid #fff",
-// 	};
-// 	return opt;
-// }
-// $('.whouse-content-body').niceScroll('.whouse-content-scroll',scrollwhouse());
-// $('.whouse-content-body').scroll(function(event) {
-// 		var s=$(this).scrollTop();
-// 		var r=Math.abs($(this).outerHeight()-$('.whouse-content-scroll').outerHeight());
-// 		var p=s/r*100;
-// 	$('.whouse-content__shadow').css({opacity:1-1/100*p});
-// });
+      var  jqXHR = jQuery.ajax({      
+          url: allAjax.ajaxurl,
+          dataType: 'text',
+          cache: false,
+          contentType: false,
+          processData: false,
+          data: form_data, 
+          type: 'post'    
+      });
+
+      jqXHR.done(function (responce) {
+          file_span.val(responce);
+          elems = responce.split('|');
+          console.log(elems[0].split("/").pop());
+
+		  jQuery("#file-path").html(elems[0].split("/").pop());
+		  jQuery("#file-path-serv").val(elems[0]);
+      });
+              
+      jqXHR.fail(function (responce) {
+          // spiner.hide();
+          if (responce.responseText == "0")
+              file_span.html("<span style = 'color:red;'>Большой файл!</span>");
+          else
+              file_span.html(responce.responseText);
+      });
+  });
 
 
 
-if ($('.t,.tip').length > 0) {
-	tip();
-}
-function tip() {
-	$('.t,.tip').webuiPopover({
-		placement: 'top',
-		trigger: 'hover',
-		backdrop: false,
-		//selector:true,
-		animation: 'fade',
-		dismissible: true,
-		padding: false,
-		//hideEmpty: true
-		onShow: function ($element) { },
-		onHide: function ($element) { },
-	}).on('show.webui.popover hide.webui.popover', function (e) {
-		$(this).toggleClass('active');
-	});
-}
-
-//scrollToFixed Фиксовая шапка
-  // $(".header").scrollToFixed({
-  //   marginTop: -1
-  // });
 }); 
